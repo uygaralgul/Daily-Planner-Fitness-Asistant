@@ -1,0 +1,45 @@
+## [Visual Studio Visual Studio 2017/2019/2022]
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Xx]64/
+[Xx]86/
+[Aa]rm/
+[Aa]rm64/
+bbin/
+obj/
+external/
+node_modules/
+
+# Visual Studio 2015/2017/2019/2022 cache build results
+.vs/
+
+# Logs
+*.log
+logs/
+
+# Backup & Temp files
+*.bak
+*.cache
+*.temp
+*.tmp
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Other
+*.DS_Store
+Thumbs.db
