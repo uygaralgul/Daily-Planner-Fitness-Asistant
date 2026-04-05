@@ -1,0 +1,851 @@
+<Window x:Class="DailyPlanner.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:DailyPlanner.ViewModels"
+        xmlns:conv="clr-namespace:DailyPlanner.Converters"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        Title="Daily Planner" Height="780" Width="1200"
+        MinHeight="680" MinWidth="1000"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI"
+        Icon="/Assets/app_logo.png">
+
+    <Window.Resources>
+        <conv:BoolToVisibilityConverter        x:Key="BoolToVis"/>
+        <conv:InverseBoolToVisibilityConverter x:Key="InvBoolToVis"/>
+        <conv:BoolToOpacityConverter           x:Key="BoolToOpacity"/>
+        <conv:DayStatusToColorConverter        x:Key="StatusToColor"/>
+        <conv:DayStatusToSymbolConverter       x:Key="StatusToSymbol"/>
+        <conv:SelectedDayBorderConverter       x:Key="SelectedBorderThickness"/>
+        <conv:StrikethroughConverter           x:Key="StrikeConv"/>
+        <conv:HexToSolidBrushConverter         x:Key="HexToBrush"/>
+        <conv:HexToForegroundConverter         x:Key="HexToFg"/>
+
+        <!-- Sidebar button style -->
+        <Style x:Key="SidebarBtnStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource SidebarTextBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="8,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                                CornerRadius="10" Margin="6,2">
+                            <ContentPresenter Margin="8,8" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background"
+                                        Value="{DynamicResource SidebarBtnHoverBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Bd" Property="Background"
+                                        Value="{DynamicResource SidebarBtnActiveBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Action button style -->
+        <Style x:Key="ActionBtnStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="16,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                Opacity="{TemplateBinding IsEnabled, Converter={StaticResource BoolToOpacity}}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Opacity" Value="0.85"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Bd" Property="Opacity" Value="0.7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Page Tab style -->
+        <Style x:Key="PageTabStyle" TargetType="Button">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="0,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <!-- BdBase: her zaman TabInactiveBrush — hit-test null-background bugunu önler -->
+                        <Border x:Name="BdBase"
+                                Background="{DynamicResource TabInactiveBrush}"
+                                CornerRadius="8">
+                            <!-- Bd: renk atanmışsa üst katman olarak gösterir, yoksa Transparent -->
+                            <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                                    CornerRadius="8">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                  Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Opacity" Value="0.85"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Toggle (night mode) style -->
+        <Style x:Key="ToggleStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="{DynamicResource SidebarBtnHoverBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource SidebarTextBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="8,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                                CornerRadius="10" Margin="6,2">
+                            <ContentPresenter Margin="8,8" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Bd" Property="Background"
+                                        Value="{DynamicResource SidebarBtnActiveBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background"
+                                        Value="{DynamicResource SidebarBtnHoverBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Calendar Day button style -->
+        <Style x:Key="CalDayStyle" TargetType="Button">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <!-- Status ring behind -->
+                            <Ellipse x:Name="StatusRing"
+                                     Width="40" Height="40"
+                                     Fill="{Binding Status, Converter={StaticResource StatusToColor}}"
+                                     Opacity="0.25"/>
+                            <!-- Day circle -->
+                            <Ellipse x:Name="DayCircle"
+                                     Width="34" Height="34"
+                                     Fill="{DynamicResource CalDayBgBrush}"/>
+                            <!-- Selected border -->
+                            <Ellipse x:Name="SelBorder"
+                                     Width="36" Height="36"
+                                     Stroke="{DynamicResource CalDaySelectedBrush}"
+                                     StrokeThickness="{Binding IsSelected, Converter={StaticResource SelectedBorderThickness}}"
+                                     Fill="Transparent"/>
+                            <!-- Day number -->
+                            <TextBlock Text="{Binding DayNumber}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="12" FontWeight="SemiBold"
+                                       Foreground="{DynamicResource CalDayTextBrush}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="DayCircle" Property="Fill"
+                                        Value="{DynamicResource AccentLightBrush}"/>
+                            </Trigger>
+                            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                <Setter TargetName="DayCircle" Property="Fill"
+                                        Value="{DynamicResource CalDaySelectedBrush}"/>
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ===== TOP SECTION (Sidebar + Main Content + Page Tabs) ===== -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="160"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ===== LEFT SIDEBAR ===== -->
+            <Border Grid.Column="0"
+                    Background="{DynamicResource SidebarBackgroundBrush}"
+                    CornerRadius="0,0,0,0">
+                <DockPanel>
+                    <!-- Profile removed as per user request -->
+                    <StackPanel DockPanel.Dock="Top" Margin="0,10,0,6" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding UserName}"
+                                   Foreground="{DynamicResource SidebarTextBrush}"
+                                   FontSize="11" FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,4,4,0"
+                                   MaxWidth="100"/>
+                    </StackPanel>
+
+                    <!-- Exit at bottom -->
+                    <Button DockPanel.Dock="Bottom"
+                            Style="{StaticResource SidebarBtnStyle}"
+                            Command="{Binding ExitCommand}"
+                            Margin="6,4,6,14">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                            <TextBlock Text="🚪" FontSize="26" HorizontalAlignment="Center" Margin="0,0,0,4"/>
+                            <TextBlock Text="{DynamicResource Text_Exit}" FontSize="12" HorizontalAlignment="Center"
+                                       Foreground="{DynamicResource SidebarSubTextBrush}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Night mode at bottom-2 (Lowest but above Exit) -->
+                    <ToggleButton DockPanel.Dock="Bottom"
+                                  Style="{StaticResource ToggleStyle}"
+                                  IsChecked="{Binding IsDarkMode, Mode=TwoWay}"
+                                  Margin="6,4">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                            <TextBlock x:Name="ThemeIcon" Text="🌙" FontSize="26" HorizontalAlignment="Center" Margin="0,0,0,4"/>
+                            <TextBlock Text="{DynamicResource Text_NightMode}" FontSize="11" HorizontalAlignment="Center"
+                                       Foreground="{DynamicResource SidebarSubTextBrush}"
+                                       TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <!-- Language swap at bottom-3 (Space above night mode) -->
+                    <Button DockPanel.Dock="Bottom"
+                            Style="{StaticResource SidebarBtnStyle}"
+                            Click="LanguageToggle_Click"
+                            Margin="6,4">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                            <TextBlock Text="🌐" FontSize="26" HorizontalAlignment="Center" Margin="0,0,0,4"/>
+                            <TextBlock Text="{DynamicResource Text_CurrentLanguage}" FontSize="12" HorizontalAlignment="Center"
+                                       Foreground="{DynamicResource SidebarSubTextBrush}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Main nav buttons -->
+                    <StackPanel DockPanel.Dock="Top" Margin="0,4">
+                        <Button Style="{StaticResource SidebarBtnStyle}"
+                                Command="{Binding OpenCalculatorsCommand}"
+                                Margin="6,2">
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="🧮" FontSize="28" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{DynamicResource Text_Calculators}" FontSize="11" HorizontalAlignment="Center"
+                                           Foreground="{DynamicResource SidebarSubTextBrush}"
+                                           TextAlignment="Center" Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource SidebarBtnStyle}"
+                                Command="{Binding OpenNotesCommand}"
+                                Margin="6,2">
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="📝" FontSize="28" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{DynamicResource Text_Notes}" FontSize="11" HorizontalAlignment="Center"
+                                           Foreground="{DynamicResource SidebarSubTextBrush}"
+                                           TextAlignment="Center" Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource SidebarBtnStyle}"
+                                Command="{Binding OpenStatsCommand}"
+                                Margin="6,2">
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="📊" FontSize="28" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{DynamicResource Text_Stats}" FontSize="11" HorizontalAlignment="Center"
+                                           Foreground="{DynamicResource SidebarSubTextBrush}"
+                                           TextAlignment="Center" Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+
+            <!-- ===== MAIN CONTENT AREA ===== -->
+            <Border Grid.Column="1"
+                    Background="{DynamicResource ContentBackgroundBrush}"
+                    Margin="1,0">
+                <Grid>
+                    <!-- Tiled Background Layer -->
+                    <Border IsHitTestVisible="False" Opacity="0.4">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding SelectedPage.BackgroundImage}" TileMode="Tile" Viewport="0,0,400,400" ViewportUnits="Absolute" Stretch="UniformToFill"/>
+                        </Border.Background>
+                    </Border>
+                    
+                    <DockPanel>
+                    <!-- Header: Date -->
+                    <Border DockPanel.Dock="Top"
+                            Background="{DynamicResource HeaderBackgroundBrush}"
+                            Padding="24,16,24,12"
+                            BorderBrush="{DynamicResource BorderBrush}"
+                            BorderThickness="0,0,0,1">
+                        <DockPanel>
+                            <StackPanel DockPanel.Dock="Left">
+                                <TextBlock Text="{Binding SelectedDateDisplay}"
+                                           FontSize="26" FontWeight="Bold"
+                                           Foreground="{DynamicResource PrimaryTextBrush}"/>
+                                <TextBlock Text="{Binding SelectedDayOfWeek}"
+                                           FontSize="12"
+                                           Foreground="{DynamicResource AccentBrush}"
+                                           FontWeight="SemiBold"
+                                           Margin="0,2,0,0"/>
+                            </StackPanel>
+                            <!-- Progress & Theme Btn -->
+                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right"
+                                        VerticalAlignment="Center">
+                                
+                                <Button Content="{DynamicResource Text_Theme}"
+                                        Click="ThemeBtn_Click"
+                                        Background="Transparent"
+                                        BorderThickness="1"
+                                        BorderBrush="{DynamicResource BorderBrush}"
+                                        Foreground="{DynamicResource SecondaryTextBrush}"
+                                        Padding="8,4"
+                                        Margin="0,0,16,0"
+                                        Cursor="Hand"
+                                        ToolTip="Sayfa Arka Plan Temasını Değiştir"/>
+
+                                <StackPanel VerticalAlignment="Center" Margin="0,0,4,0">
+                                    <TextBlock Text="{Binding ProgressSummary}"
+                                               FontSize="12" TextAlignment="Right"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"/>
+                                    <ProgressBar x:Name="DayProgressBar"
+                                                 Value="{Binding ProgressPercent, Mode=OneWay}"
+                                                 Maximum="100" Minimum="0"
+                                                 Height="4" Width="120"
+                                                 Margin="0,4,0,0"
+                                                 Background="{DynamicResource BorderBrush}"
+                                                 Foreground="{DynamicResource AccentBrush}"
+                                                 BorderThickness="0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DockPanel>
+                    </Border>
+
+                    <!-- Action buttons at bottom of content -->
+                    <Border DockPanel.Dock="Bottom"
+                            Background="{DynamicResource ContentBackgroundBrush}"
+                            BorderBrush="{DynamicResource BorderBrush}"
+                            BorderThickness="0,1,0,0"
+                            Padding="20,12">
+                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Style="{StaticResource ActionBtnStyle}"
+                                    Background="{DynamicResource ActionBtn1Brush}"
+                                    Command="{Binding CopyDayCommand}"
+                                    Margin="5,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📋 " FontSize="14"/>
+                                    <TextBlock Text="{DynamicResource Text_CopyDay}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource ActionBtnStyle}"
+                                    Background="{DynamicResource ActionBtn2Brush}"
+                                    Command="{Binding PasteDayCommand}"
+                                    Margin="5,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📌 " FontSize="14"/>
+                                    <TextBlock Text="{DynamicResource Text_PasteDay}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource ActionBtnStyle}"
+                                    Background="{DynamicResource ActionBtn1Brush}"
+                                    Command="{Binding CopyPageCommand}"
+                                    Margin="5,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📄 " FontSize="14"/>
+                                    <TextBlock Text="{DynamicResource Text_CopyPage}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource ActionBtnStyle}"
+                                    Background="{DynamicResource ActionBtn2Brush}"
+                                    Command="{Binding PastePageCommand}"
+                                    Margin="5,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📑 " FontSize="14"/>
+                                    <TextBlock Text="{DynamicResource Text_PastePage}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource ActionBtnStyle}"
+                                    Background="{DynamicResource ActionBtn3Brush}"
+                                    Command="{Binding PasteToMonthCommand}"
+                                    Margin="5,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📅 " FontSize="14"/>
+                                    <TextBlock Text="{DynamicResource Text_PasteToMonth}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource ActionBtnStyle}"
+                                    Background="#EF4444"
+                                    Command="{Binding ClearDayCommand}"
+                                    Margin="5,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="🗑 " FontSize="14"/>
+                                    <TextBlock Text="{DynamicResource Text_ClearDay}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </WrapPanel>
+                    </Border>
+
+                    <!-- Task list -->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                  Padding="20,10">
+                        <StackPanel>
+                            <!-- Task items -->
+                            <ItemsControl ItemsSource="{Binding SelectedPage.Tasks}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border x:Name="TaskBorder"
+                                                CornerRadius="8"
+                                                Margin="0,3"
+                                                Padding="0,4">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="4"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <!-- Left accent bar -->
+                                                <Border Grid.Column="0"
+                                                        Width="4" CornerRadius="2"
+                                                        Margin="6,4,8,4">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding IsCompleted}" Value="True">
+                                                                    <Setter Property="Background" Value="{DynamicResource CheckboxActiveBrush}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                </Border>
+
+                                                <!-- Checkbox -->
+                                                <CheckBox Grid.Column="1"
+                                                          IsChecked="{Binding IsCompleted, Mode=TwoWay}"
+                                                          VerticalAlignment="Center"
+                                                          Margin="0,0,10,0"
+                                                          Command="{Binding DataContext.ToggleTaskCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                          CommandParameter="{Binding}">
+                                                    <CheckBox.Style>
+                                                        <Style TargetType="CheckBox">
+                                                            <Setter Property="Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate TargetType="CheckBox">
+                                                                        <Border Width="22" Height="22"
+                                                                                CornerRadius="6"
+                                                                                BorderThickness="2">
+                                                                            <Border.Style>
+                                                                                <Style TargetType="Border">
+                                                                                    <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                                                                                    <Setter Property="Background" Value="Transparent"/>
+                                                                                    <Style.Triggers>
+                                                                                        <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource AncestorType=CheckBox}}" Value="True">
+                                                                                            <Setter Property="Background" Value="{DynamicResource CheckboxActiveBrush}"/>
+                                                                                            <Setter Property="BorderBrush" Value="{DynamicResource CheckboxActiveBrush}"/>
+                                                                                        </DataTrigger>
+                                                                                    </Style.Triggers>
+                                                                                </Style>
+                                                                            </Border.Style>
+                                                                            <TextBlock x:Name="Check" Text="✓"
+                                                                                       FontSize="13" FontWeight="Bold"
+                                                                                       Foreground="White"
+                                                                                       HorizontalAlignment="Center"
+                                                                                       VerticalAlignment="Center">
+                                                                                <TextBlock.Style>
+                                                                                    <Style TargetType="TextBlock">
+                                                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                                                        <Style.Triggers>
+                                                                                            <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource AncestorType=CheckBox}}" Value="True">
+                                                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                                                            </DataTrigger>
+                                                                                        </Style.Triggers>
+                                                                                    </Style>
+                                                                                </TextBlock.Style>
+                                                                            </TextBlock>
+                                                                        </Border>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </Style>
+                                                    </CheckBox.Style>
+                                                </CheckBox>
+
+                                                <!-- Task description -->
+                                                <TextBox Grid.Column="2"
+                                                         Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                                                         BorderThickness="0"
+                                                         Background="Transparent"
+                                                         FontSize="14"
+                                                         VerticalAlignment="Center"
+                                                         Foreground="{DynamicResource PrimaryTextBrush}"
+                                                         TextDecorations="{Binding IsCompleted, Converter={StaticResource StrikeConv}}">
+                                                    <TextBox.Style>
+                                                        <Style TargetType="TextBox">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding IsCompleted}" Value="True">
+                                                                    <Setter Property="Foreground" Value="{DynamicResource CompletedTextBrush}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBox.Style>
+                                                </TextBox>
+
+                                                <!-- Delete button -->
+                                                <Button Grid.Column="3"
+                                                        Content="🗑"
+                                                        Background="Transparent"
+                                                        BorderThickness="0"
+                                                        FontSize="14"
+                                                        Cursor="Hand"
+                                                        Opacity="0.4"
+                                                        Margin="0,0,6,0"
+                                                        VerticalAlignment="Center"
+                                                        Command="{Binding DataContext.DeleteTaskCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                        CommandParameter="{Binding}">
+                                                    <Button.Style>
+                                                        <Style TargetType="Button">
+                                                            <Setter Property="Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate TargetType="Button">
+                                                                        <Border Background="{TemplateBinding Background}"
+                                                                                Padding="4">
+                                                                            <ContentPresenter/>
+                                                                        </Border>
+                                                                        <ControlTemplate.Triggers>
+                                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                                <Setter Property="Opacity" Value="1"/>
+                                                                            </Trigger>
+                                                                        </ControlTemplate.Triggers>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </Style>
+                                                    </Button.Style>
+                                                </Button>
+                                            </Grid>
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="{DynamicResource TaskHoverBrush}"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <!-- Add task button -->
+                            <Button HorizontalAlignment="Stretch"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    Margin="6,10,6,6"
+                                    Command="{Binding AddTaskCommand}">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="Bd" Padding="10,10" CornerRadius="10"
+                                                Background="Transparent"
+                                                BorderThickness="1.5"
+                                                BorderBrush="{DynamicResource BorderBrush}">
+                                            <Border.Resources>
+                                                <Style TargetType="Border">
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Resources>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <TextBlock Text="＋" FontSize="15" FontWeight="Bold"
+                                                           Foreground="{DynamicResource AccentBrush}"
+                                                           VerticalAlignment="Center"
+                                                           Margin="0,0,6,0"/>
+                                                <TextBlock Text="{DynamicResource Text_AddTask}"
+                                                           FontSize="13" FontWeight="SemiBold"
+                                                           Foreground="{DynamicResource AccentBrush}"
+                                                           VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Bd" Property="Background"
+                                                        Value="{DynamicResource AccentLightBrush}"/>
+                                                <Setter TargetName="Bd" Property="BorderBrush"
+                                                        Value="{DynamicResource AccentBrush}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </StackPanel>
+                    </ScrollViewer>
+                </DockPanel>
+              </Grid>
+            </Border>
+
+            <!-- ===== RIGHT PANEL: Page Tabs ===== -->
+            <Border Grid.Column="2"
+                    Background="{DynamicResource RightPanelBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1,0,0,0">
+                <DockPanel Margin="8,16,8,8">
+                    <TextBlock DockPanel.Dock="Top"
+                               Text="{DynamicResource Text_PagesHeader}"
+                               FontSize="10" FontWeight="Bold"
+                               Foreground="{DynamicResource SecondaryTextBrush}"
+                               Margin="4,0,0,10"/>
+
+                    <!-- Add page at bottom -->
+                    <Button DockPanel.Dock="Bottom"
+                            Content="{DynamicResource Text_AddPage}"
+                            Style="{StaticResource PageTabStyle}"
+                            Background="{DynamicResource AccentLightBrush}"
+                            Foreground="{DynamicResource AccentBrush}"
+                            FontWeight="SemiBold"
+                            Margin="0,4,0,0"
+                            Command="{Binding AddPageCommand}"/>
+
+                    <!-- Page list -->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding Pages}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Renk noktası + renk seçici popup -->
+                                        <Button Grid.Column="0"
+                                                x:Name="ColorDotBtn"
+                                                Width="18" Height="18"
+                                                Margin="2,0,4,0"
+                                                Cursor="Hand"
+                                                BorderThickness="0"
+                                                Tag="{Binding}"
+                                                Click="ColorDot_Click"
+                                                VerticalAlignment="Center"
+                                                ToolTip="Renk seç">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border x:Name="DotBd"
+                                                            Width="14" Height="14"
+                                                            CornerRadius="7"
+                                                            Background="{Binding Color, Converter={StaticResource HexToBrush}}"
+                                                            BorderThickness="1.5"
+                                                            BorderBrush="{DynamicResource BorderBrush}">
+                                                        <Border.Style>
+                                                            <Style TargetType="Border">
+                                                                <Style.Triggers>
+                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                        <Setter Property="Opacity" Value="0.7"/>
+                                                                    </Trigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Border.Style>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="1"
+                                                Background="{Binding Color, Converter={StaticResource HexToBrush}}"
+                                                Foreground="{Binding Color, Converter={StaticResource HexToFg}}"
+                                                PreviewMouseLeftButtonDown="PageTab_PreviewMouseDown">
+                                            <Button.Style>
+                                                <Style TargetType="Button" BasedOn="{StaticResource PageTabStyle}">
+                                                    <Setter Property="Background" Value="{DynamicResource TabInactiveBrush}"/>
+                                                    <Setter Property="Foreground" Value="{DynamicResource TabInactiveTextBrush}"/>
+                                                </Style>
+                                            </Button.Style>
+                                            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                                     Background="Transparent" BorderThickness="0"
+                                                     Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                                                     FontSize="12"
+                                                     Cursor="IBeam"
+                                                     TextWrapping="Wrap">
+                                                <b:Interaction.Triggers>
+                                                    <b:EventTrigger EventName="LostFocus">
+                                                        <b:InvokeCommandAction Command="{Binding DataContext.RenamePageCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" />
+                                                    </b:EventTrigger>
+                                                </b:Interaction.Triggers>
+                                            </TextBox>
+                                        </Button>
+
+                                        <!-- Sil -->
+                                        <Button Grid.Column="2"
+                                                Content="✕"
+                                                Width="22" Height="22"
+                                                Background="Transparent"
+                                                BorderThickness="0"
+                                                Cursor="Hand"
+                                                FontSize="10"
+                                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                                Command="{Binding DataContext.DeletePageCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                CommandParameter="{Binding}"
+                                                VerticalAlignment="Center">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border x:Name="Bd" Background="Transparent" CornerRadius="4">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter TargetName="Bd" Property="Background" Value="#FFD0D0"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </DockPanel>
+            </Border>
+        </Grid>
+
+        <!-- ===== BOTTOM: Calendar + Navigation ===== -->
+        <Border Grid.Row="1"
+                Background="{DynamicResource CalendarBandBrush}"
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="0,1,0,0"
+                MinHeight="110">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Calendar days -->
+                <DockPanel Grid.Column="0" Margin="10,8,0,8">
+                    <!-- Month nav row -->
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"
+                                VerticalAlignment="Center" Margin="10,0,0,6">
+                        <Button Content="◀"
+                                Width="28" Height="28"
+                                Background="{DynamicResource NavBtnBrush}"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                FontSize="11"
+                                Foreground="{DynamicResource PrimaryTextBrush}"
+                                Command="{Binding PreviousMonthCommand}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="6">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource NavBtnHoverBrush}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Text="{Binding CurrentMonthYear}"
+                                   FontSize="13" FontWeight="SemiBold"
+                                   Foreground="{DynamicResource PrimaryTextBrush}"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0"/>
+                        <Button Content="▶"
+                                Width="28" Height="28"
+                                Background="{DynamicResource NavBtnBrush}"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                FontSize="11"
+                                Foreground="{DynamicResource PrimaryTextBrush}"
+                                Command="{Binding NextMonthCommand}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="6">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource NavBtnHoverBrush}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+
+                    <!-- Day circles -->
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                                  VerticalScrollBarVisibility="Hidden">
+                        <ItemsControl ItemsSource="{Binding CalendarDays}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource CalDayStyle}"
+                                            Command="{Binding DataContext.SelectDayCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                            CommandParameter="{Binding Date}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </DockPanel>
+
+                <!-- Right nav removed -->
+                <Border Grid.Column="1"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1,0,0,0"
+                        Padding="8"
+                        Visibility="Collapsed"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
