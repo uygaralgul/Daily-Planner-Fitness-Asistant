@@ -6,64 +6,52 @@
 
 ---
 
-## 🚀 Dev Özellik Listesi | Full Feature List
+## 🚀 Önemli Özellikler | Key Features
 
-### 📝 1. Gelişmiş Not Sistemi | Advanced Notes
-- **Dinamik Temalar:** Koyu mod ve renkli yan çubuklar ile özelleştirilebilir arayüz.
-- **Kategorizasyon:** Öncelliklere ve renklere göre not gruplama.
-- **Veri Güvenliği:** Tüm notlarınız yerel (local) JSON dosyalarında saklanır.
+### 📝 1. Akıllı Not Sistemi | Smart Note System
+- **TR:** Renk kodlu kategorizasyon ve gelişmiş koyu tema arayüzü ile notlarınızı kolayca yönetin.
+- **EN:** Manage your notes easily with color-coded categorization and a modern dark theme interface.
 
 ### 📊 2. Bilimsel Hesaplayıcılar | Scientific Calculators
-Eksiksiz bir veri seti sunar:
-- 🩸 **Vücut Yağ Oranı (Body Fat):** (Navy & BMI Metodları)
-- 🔥 **Günlük Kalori (BMR/TDEE):** Aktivite seviyenize özel enerji harcaması.
-- 💧 **Su Hesabı (Water Intake):** Antrenman yoğunluğuna göre su ihtiyacı.
-- 💪 **Maksimum Kuvvet (1RM):** Bilimsel formüllerle güç tahmini.
-- 📏 **BMI & İdeal Kilo:** Sağlıklı ağırlık aralığı analizi.
+- **TR:** Vücut Yağ Oranı, Günlük Kalori (TDEE), Su İhtiyacı, BMI ve 1RM Güç Hesaplayıcıları.
+- **EN:** Body Fat Percentage, Daily Calorie (TDEE), Water Intake, BMI, and 1RM Strength Calculators.
 
-### 🦴 3. İnteraktif Anatomi & Isınma | Interactive Anatomy & Warm-up
-- **12 Ana Kas Grubu:** Görsel harita üzerinden her kasın detaylarına erişim.
-- **Egzersiz Kütüphanesi:** Her kas için seçilmiş en etkili bilimsel hareketler.
-- **🔥 Isınma Rehberleri:** Sakatlanma riskini sıfıra indiren bölgeye özel "Warm-up" rutinleri.
+### 🦴 3. İnteraktif Anatomi Haritası | Interactive Anatomy Map
+- **TR:** 12 ana kas grubuna tıklayarak en etkili egzersizleri ve ısınma rutinlerini (Warm-up) keşfedin.
+- **EN:** Discover the most effective exercises and warm-up routines for 12 major muscle groups by clicking the visual map.
 
 ### 💊 4. Akıllı Supplement Testi | Smart Supplement Test
-- **Kişiye Özel Analiz:** Antrenman, beslenme ve uyku kalitenizi ölçen algoritma.
-- **Önceliklendirme:** Hangi takviyeye "gerçekten" ihtiyacınız olduğunu (Yüksek/Orta/Düşük) söyler.
-- **Hassas Dozaj:** Kilonuza göre hesaplanan miligramlık doz önerileri.
+- **TR:** Yaşam tarzınıza, beslenmenize ve antrenmanınıza göre kişiselleştirilmiş takviye analizi ve kilo bazlı dozaj önerileri.
+- **EN:** Personalized supplement analysis and weight-based dosage recommendations based on your lifestyle, nutrition, and training.
 
-### 📚 5. Dev Sporcu Rehberi | Massive Sports Guide
-Uygulama içinde tam 8 ana bilimsel rehber barındırır:
-- 🧘 **Esneklik & Mobilite:** Üst/alt vücut, omurga ve dinamik rutinler.
-- 📅 **Antrenman Splitleri:** Haftalık gün sayınıza göre en iyi program (PPL, Full Body, vs.).
-- 🧠 **Zihin Gelişimi (Mind Dev):** Disiplin, odaklanma ve şampiyon zihniyeti rehberi.
-- 🏃 **Kondisyon & Kardiyo:** Yağ yakımı ve performans protokolleri.
-- 😴 **Uyku & Toparlanma:** Hormonal dengenin sırları ve toparlanma süreci.
-- 🍖 **Beslenme Zamanlaması:** Antrenman öncesi/sonrası altın öğün formülleri.
-- 💊 **Takviye Kılavuzu:** Kreatin, Protein, Kafein ve daha fazlası hakkında her şey.
-- 🔋 **Toparlanma Süreleri:** Kas gruplarının dinlenme ihtiyacı tablosu.
+### 🧘 5. Esneklik & Mobilite Rehberi | Flexibility & Mobility Guide
+- **TR:** Dinamik ısınma rutinleri, statik esnemeler ve eklem sağlığı için özel mobilite akışları.
+- **EN:** Dynamic warm-up routines, static stretches, and specific mobility flows for joint health.
+
+### 📅 6. Antrenman Splitleri | Training Splits
+- **TR:** Full Body, PPL, ve Upper/Lower gibi bilimsel program türlerinin detaylı kıyaslamaları ve seçim rehberi.
+- **EN:** Detailed comparisons and selection guides for scientific program types like Full Body, PPL, and Upper/Lower.
 
 ---
 
 ## 🌍 Dil Desteği | Language Support
 The application is 100% localized | Uygulama %100 yerelleştirilmiştir:
-- 🇹🇷 **Türkçe** | 🇺🇸 **English**
-
----
-
-## 🛠️ Teknik Detaylar | Technical Stack
-- **Framework:** .NET 4.8+ / WPF
-- **UI Architecture:** XAML (Glassmorphism & Vibrant Design)
-- **Data Persistence:** JSON Serialization (Services/DataService.cs)
-- **Localization:** Resource Dictionaries (TR/EN logic)
+- 🇹🇷 **Turkish** (Türkçe)
+- 🇺🇸 **English** (İngilizce)
 
 ---
 
 ## 📂 Kurulum | Setup
-1. `DailyPlanner.sln` dosyasını açın.
-2. Visual Studio üzerinden derleyin.
-3. Uygulamanın tadını çıkarın!
+1. **TR:** `DailyPlanner.sln` dosyasını Visual Studio ile açın ve **F5** ile çalıştırın.
+2. **EN:** Open `DailyPlanner.sln` with Visual Studio and press **F5** to build and run.
+
+---
+
+### 🎨 Teknik Altyapı | Technical Stack
+- **C# / .NET 4.8+ / WPF**
+- **XAML** (Modern & Responsive UI)
+- **JSON Persistence** (Local data storage)
 
 ---
 > [!IMPORTANT]
-> This app is for informational purposes. Consistency is the key to success.
-> Bu uygulama bilgilendirme amaçlıdır. başarının anahtarı sürekliliktir!
+> Consistency is the key to success. | Başarının anahtarı sürekliliktir!
