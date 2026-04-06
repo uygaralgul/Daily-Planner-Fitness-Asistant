@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="DailyPlanner/Assets/hero.png" width="100%" alt="Daily Planner Hero">
-</p>
-
 # 🗓️ Daily Planner & Fitness Assistant | Günlük Planlayıcı & Fitness Asistanı
 
 <p align="center">
