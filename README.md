@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Assets/hero.png" width="100%" alt="Daily Planner Hero">
+  <img src="DailyPlanner/Assets/hero.png" width="100%" alt="Daily Planner Hero">
 </p>
 
 # 🗓️ Daily Planner & Fitness Assistant | Günlük Planlayıcı & Fitness Asistanı
@@ -49,12 +49,12 @@
 
 <table style="width:100%">
   <tr>
-    <td width="50%"><img src="Assets/Screenshots/main_window.png" alt="Main Window"></td>
-    <td width="50%"><img src="Assets/Screenshots/calculators.png" alt="Calculators"></td>
+    <td width="50%"><img src="DailyPlanner/Assets/Screenshots/main_window.png" alt="Main Window"></td>
+    <td width="50%"><img src="DailyPlanner/Assets/Screenshots/calculators.png" alt="Calculators"></td>
   </tr>
   <tr>
-    <td width="50%"><img src="Assets/Screenshots/anatomy_map.png" alt="Anatomy Map"></td>
-    <td width="50%"><img src="Assets/Screenshots/notes.png" alt="Notes"></td>
+    <td width="50%"><img src="DailyPlanner/Assets/Screenshots/anatomy_map.png" alt="Anatomy Map"></td>
+    <td width="50%"><img src="DailyPlanner/Assets/Screenshots/notes.png" alt="Notes"></td>
   </tr>
 </table>
 
