@@ -1,4 +1,15 @@
+<p align="center">
+  <img src="Assets/hero.png" width="100%" alt="Daily Planner Hero">
+</p>
+
 # 🗓️ Daily Planner & Fitness Assistant | Günlük Planlayıcı & Fitness Asistanı
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Platform-Windows-lightgrey.svg" alt="Platform">
+  <img src="https://img.shields.io/badge/Language-C%23-green.svg" alt="C#">
+  <img src="https://img.shields.io/badge/UI-WPF-orange.svg" alt="WPF">
+</p>
 
 **Daily Planner** is a high-performance **WPF (C#)** desktop application designed for maximum productivity and scientific fitness tracking. It's not just a planner; it's a personal coach, nutritionist, and health encyclopedia in your pocket.
 
@@ -31,6 +42,25 @@
 ### 📅 6. Antrenman Splitleri | Training Splits
 - **TR:** Full Body, PPL, ve Upper/Lower gibi bilimsel program türlerinin detaylı kıyaslamaları ve seçim rehberi.
 - **EN:** Detailed comparisons and selection guides for scientific program types like Full Body, PPL, and Upper/Lower.
+
+---
+
+## 📸 Screenshots | Ekran Görüntüleri
+
+<table style="width:100%">
+  <tr>
+    <td width="50%"><img src="Assets/Screenshots/main_window.png" alt="Main Window"></td>
+    <td width="50%"><img src="Assets/Screenshots/calculators.png" alt="Calculators"></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="Assets/Screenshots/anatomy_map.png" alt="Anatomy Map"></td>
+    <td width="50%"><img src="Assets/Screenshots/notes.png" alt="Notes"></td>
+  </tr>
+</table>
+
+> [!TIP]
+> **TR:** Uygulamanın tüm özelliklerini keşfetmek için yukarıdaki görsellere göz atın!
+> **EN:** Check out the images above to explore all the features of the application!
 
 ---
 
