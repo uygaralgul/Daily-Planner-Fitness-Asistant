@@ -17,7 +17,7 @@
 [Xx]86/
 [Aa]rm/
 [Aa]rm64/
-bbin/
+bin/
 obj/
 external/
 node_modules/
