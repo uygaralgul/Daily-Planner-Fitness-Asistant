@@ -1,0 +1,507 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Sidebar -->
+    <system:String x:Key="Text_Exit">Exit</system:String>
+    <system:String x:Key="Text_NightMode">Night Mode</system:String>
+    <system:String x:Key="Text_Calculators">Calculators</system:String>
+    <system:String x:Key="Text_Notes">Notes</system:String>
+    <system:String x:Key="Text_Stats">Statistics</system:String>
+
+    <!-- Main Content Header -->
+    <system:String x:Key="Text_Theme">🎨 Theme</system:String>
+
+    <!-- Action Buttons -->
+    <system:String x:Key="Text_CopyDay">Copy Day</system:String>
+    <system:String x:Key="Text_PasteDay">Paste Day</system:String>
+    <system:String x:Key="Text_CopyPage">Copy Page</system:String>
+    <system:String x:Key="Text_PastePage">Paste Page</system:String>
+    <system:String x:Key="Text_PasteToMonth">Paste to Month</system:String>
+    <system:String x:Key="Text_ClearDay">Clear Day</system:String>
+    
+    <!-- Task List -->
+    <system:String x:Key="Text_AddTask">Add Task</system:String>
+
+    <!-- Pages Panel -->
+    <system:String x:Key="Text_PagesHeader">PAGES</system:String>
+    <system:String x:Key="Text_AddPage">+ Add Page</system:String>
+
+    <!-- Language Toggle -->
+    <system:String x:Key="Text_CurrentLanguage">TR</system:String>
+
+    <!-- Code Behind Strings -->
+    <system:String x:Key="Text_PickColor">Pick Color</system:String>
+    <system:String x:Key="Text_ClearColor">↩ Clear Color</system:String>
+    <system:String x:Key="Text_BackgroundTheme">Background Theme</system:String>
+    <system:String x:Key="Text_ThemeNone">❌ Plain (None)</system:String>
+    <system:String x:Key="Text_ThemeStudy">📚 Study / Education</system:String>
+    <system:String x:Key="Text_ThemeSport">🏋️ Sport / Fitness</system:String>
+    <system:String x:Key="Text_ThemeFood">🍳 Food / Kitchen</system:String>
+    <system:String x:Key="Text_ThemeWork">💼 Work / Planning</system:String>
+    <system:String x:Key="Text_ThemeMusic">🎵 Music / Art</system:String>
+
+    <!-- Stats Window Strings -->
+    <system:String x:Key="Title_Stats">📊 Statistics</system:String>
+    <system:String x:Key="Text_StatsHeader">📊 Completion Statistics</system:String>
+    <system:String x:Key="Text_StatsSub">Task completion rates — weekly, monthly, and yearly view</system:String>
+    <system:String x:Key="Text_Weekly">Weekly</system:String>
+    <system:String x:Key="Text_Monthly">Monthly</system:String>
+    <system:String x:Key="Text_Yearly">Yearly</system:String>
+    <system:String x:Key="Text_Avg">Avg </system:String>
+    <system:String x:Key="Text_Best">Best </system:String>
+    <system:String x:Key="Text_Total">Total </system:String>
+    <system:String x:Key="Text_Close">Close</system:String>
+    <system:String x:Key="Text_Stat80">≥80% Completed</system:String>
+    <system:String x:Key="Text_Stat40">&lt;40% / Partial</system:String>
+    <system:String x:Key="Text_StatEmpty">Empty day</system:String>
+
+    <!-- Notes Window Strings -->
+    <system:String x:Key="Title_Notes">📝 Notepad</system:String>
+    <system:String x:Key="Text_SidebarColor">Change sidebar color</system:String>
+    <system:String x:Key="Text_MyNotes">MY NOTES</system:String>
+    <system:String x:Key="Text_SidebarColorHeader">Sidebar Color</system:String>
+    <system:String x:Key="Text_ColorDefault">Default</system:String>
+    <system:String x:Key="Text_ColorDarkNavy">Dark Navy</system:String>
+    <system:String x:Key="Text_ColorDarkGreen">Dark Green</system:String>
+    <system:String x:Key="Text_ColorDarkPurple">Dark Purple</system:String>
+    <system:String x:Key="Text_ColorDarkRed">Dark Red</system:String>
+    <system:String x:Key="Text_ColorDarkBrown">Dark Brown</system:String>
+    <system:String x:Key="Text_ColorSteelBlue">Steel Blue</system:String>
+    <system:String x:Key="Text_ColorAnthracite">Anthracite</system:String>
+    <system:String x:Key="Text_ColorForestGreen">Forest Green</system:String>
+    <system:String x:Key="Text_ColorNightBlue">Night Blue</system:String>
+    <system:String x:Key="Text_ColorDarkEmerald">Dark Emerald</system:String>
+    <system:String x:Key="Text_ColorDarkMaroon">Dark Maroon</system:String>
+
+    <system:String x:Key="Text_ErrorAddingNote">Error adding new note</system:String>
+    <system:String x:Key="Text_ErrorLoadingNote">Error loading note</system:String>
+    <system:String x:Key="Text_Error">Error</system:String>
+    <system:String x:Key="Msg_Error">Error</system:String>
+    <system:String x:Key="Msg_InvalidInput">Please enter valid values.</system:String>
+    <system:String x:Key="Text_LastEdited">Last edited: {0}</system:String>
+    <system:String x:Key="Text_ReminderSet">Reminder set: {0}</system:String>
+    <system:String x:Key="Text_ReminderRemoved">Reminder removed.</system:String>
+    <system:String x:Key="Text_DeleteNoteConfirm">Delete note '{0}'?</system:String>
+    <system:String x:Key="Text_DeleteNoteTitle">Delete Note</system:String>
+    <system:String x:Key="Text_NewNote">New Note</system:String>
+    <system:String x:Key="Text_Delete">🗑 Delete</system:String>
+    <system:String x:Key="Text_SelectOrCreateNote">Select a note or create a new one</system:String>
+    <system:String x:Key="Text_Bold">Bold (Ctrl+B)</system:String>
+    <system:String x:Key="Text_Italic">Italic (Ctrl+I)</system:String>
+    <system:String x:Key="Text_Underline">Underline (Ctrl+U)</system:String>
+    <system:String x:Key="Text_FontSize">Font size</system:String>
+    <system:String x:Key="Text_SelectColor">Select text color</system:String>
+    <system:String x:Key="Text_Red">Red</system:String>
+    <system:String x:Key="Text_Orange">Orange</system:String>
+    <system:String x:Key="Text_Yellow">Yellow</system:String>
+    <system:String x:Key="Text_Green">Green</system:String>
+    <system:String x:Key="Text_Blue">Blue</system:String>
+    <system:String x:Key="Text_Purple">Purple</system:String>
+    <system:String x:Key="Text_Pink">Pink</system:String>
+    <system:String x:Key="Text_DefaultColor">Default color</system:String>
+    <system:String x:Key="Text_SelectNote">Select the note</system:String>
+    <system:String x:Key="Text_NoNotesYet">No notes yet</system:String>
+    <system:String x:Key="Text_EmptyNoteGuidance">Start by clicking the '＋ New Note' button on the left.</system:String>
+
+    <!-- Reminder Strings -->
+    <system:String x:Key="Title_AddReminder">🔔 Add Reminder</system:String>
+    <system:String x:Key="Text_ReminderPickDate">Select reminder date:</system:String>
+    <system:String x:Key="Text_RemoveReminder">Remove Reminder</system:String>
+    <system:String x:Key="Text_Cancel">Cancel</system:String>
+    <system:String x:Key="Text_Ok">OK</system:String>
+    <system:String x:Key="Title_Reminder">🔔 Reminder</system:String>
+    <system:String x:Key="Text_ReminderAlert">Reminder!</system:String>
+    <system:String x:Key="Text_ReminderSubtitle">You have a note today.</system:String>
+    <system:String x:Key="Text_Show">📝 Show</system:String>
+
+    <!-- Profile & Template Strings -->
+    <system:String x:Key="Title_Profile">Profile and Templates</system:String>
+    <system:String x:Key="Text_MyTemplates">My Templates</system:String>
+    <system:String x:Key="Text_NewTemplate">+ New Template</system:String>
+    <system:String x:Key="Text_TemplateName">Template Name:</system:String>
+    <system:String x:Key="Text_SaveAndApply">Save &amp; Apply</system:String>
+    <system:String x:Key="Text_DeleteText">Delete</system:String>
+    <system:String x:Key="Text_ProfileAddTask">+ Add Task</system:String>
+
+    <!-- Calendar Dialog Strings -->
+    <system:String x:Key="Title_ClearDays">Clear — Select Days</system:String>
+    <system:String x:Key="Text_SelectDaysToClear">Select Days to Clear</system:String>
+    <system:String x:Key="Text_SelectAll">Select All</system:String>
+    <system:String x:Key="Text_ClearSelection">Clear Selection</system:String>
+    <system:String x:Key="Text_Clear">Clear</system:String>
+    <system:String x:Key="Title_PasteDays">Paste — Select Days</system:String>
+    <system:String x:Key="Text_SelectDaysToPaste">Select Days to Paste</system:String>
+    <system:String x:Key="Text_PasteText">Paste</system:String>
+    <system:String x:Key="Text_Mon">Mon</system:String>
+    <system:String x:Key="Text_Tue">Tue</system:String>
+    <system:String x:Key="Text_Wed">Wed</system:String>
+    <system:String x:Key="Text_Thu">Thu</system:String>
+    <system:String x:Key="Text_Fri">Fri</system:String>
+    <system:String x:Key="Text_Sat">Sat</system:String>
+    <system:String x:Key="Text_Sun">Sun</system:String>
+    <!-- Calculators Window Strings -->
+    <system:String x:Key="Title_Calculators">Fitness Calculators</system:String>
+    <system:String x:Key="Title_FitnessCalculators">🏋️  Fitness Calculators</system:String>
+    <system:String x:Key="ToolTip_MindGuide">Mind Guide</system:String>
+    <system:String x:Key="ToolTip_AnatomyMap">Anatomy Map — Muscle groups and exercises</system:String>
+    <system:String x:Key="ToolTip_SportGuide">Athlete Guide</system:String>
+    <system:String x:Key="ToolTip_CalorieBurn">Exercise calorie chart</system:String>
+    <system:String x:Key="ToolTip_MeasurementGuide">Measurement guide</system:String>
+    <!-- Calculators Window -->
+    <system:String x:Key="Tab_RIR">💪 RIR</system:String>
+    <system:String x:Key="Tab_BodyFat">🔥 Fat</system:String>
+    <system:String x:Key="Tab_Calories">🍽 Calories</system:String>
+    <system:String x:Key="Tab_Macros">🥩 Macros</system:String>
+    <system:String x:Key="Tab_BMI">⚖️ BMI</system:String>
+    <system:String x:Key="Tab_WeightGoal">🎯 Goal Weight</system:String>
+    <system:String x:Key="Tab_VTaper">📐 V-Taper</system:String>
+    <system:String x:Key="Tab_Water">💧 Water</system:String>
+
+    <system:String x:Key="Title_Rir">Reps In Reserve Calculator</system:String>
+    <system:String x:Key="Desc_Rir">Calculates 1RM and recommended loads from your working weight, reps, and RIR.</system:String>
+    <system:String x:Key="Label_WorkingWeight">WORKING WEIGHT (kg)</system:String>
+    <system:String x:Key="Label_RepsDone">REPS DONE</system:String>
+    <system:String x:Key="Label_RIR">REPS IN RESERVE (RIR)</system:String>
+    <system:String x:Key="Rir_0">0 RIR — Maximum effort</system:String>
+    <system:String x:Key="Rir_1">1 RIR — 1 rep left</system:String>
+    <system:String x:Key="Rir_2">2 RIR — 2 reps left</system:String>
+    <system:String x:Key="Rir_3">3 RIR — 3 reps left</system:String>
+    <system:String x:Key="Rir_4">4 RIR — 4 reps left</system:String>
+    <system:String x:Key="Btn_CalcPower">Calculate 💪</system:String>
+    <system:String x:Key="Title_BodyFat">Body Fat (Navy Method)</system:String>
+    <system:String x:Key="Desc_BodyFat">Calculates body fat percentage using the US Navy formula.</system:String>
+    <system:String x:Key="Label_Gender">GENDER</system:String>
+    <system:String x:Key="Label_Male">Male</system:String>
+    <system:String x:Key="Label_Female">Female</system:String>
+    <system:String x:Key="Label_Height">HEIGHT (cm)</system:String>
+    <system:String x:Key="Label_Neck">NECK CIRCUMFERENCE (cm)</system:String>
+    <system:String x:Key="Label_Waist">WAIST CIRCUMFERENCE (cm)</system:String>
+    <system:String x:Key="Label_Hip">HIP CIRCUMFERENCE (cm) - Female</system:String>
+    <system:String x:Key="Btn_CalcChart">Calculate 📊</system:String>
+    <system:String x:Key="Title_Calories">Daily Calorie Needs (BMR / TDEE)</system:String>
+    <system:String x:Key="Desc_Calories">Calculates your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor equation.</system:String>
+    <system:String x:Key="Label_Weight">WEIGHT (kg)</system:String>
+    <system:String x:Key="Label_Age">AGE</system:String>
+    <system:String x:Key="Label_ActivityLevel">ACTIVITY LEVEL</system:String>
+    <system:String x:Key="Act_1">Sedentary (little or no exercise)</system:String>
+    <system:String x:Key="Act_2">Lightly active (1-3 days/week)</system:String>
+    <system:String x:Key="Act_3">Moderately active (3-5 days/week)</system:String>
+    <system:String x:Key="Act_4">Very active (6-7 days/week)</system:String>
+    <system:String x:Key="Act_5">Extra active (heavy training / physical job)</system:String>
+    <system:String x:Key="Btn_CalcFood">Calculate 🍽</system:String>
+    <system:String x:Key="Title_Macros">Macronutrient Calculator</system:String>
+    <system:String x:Key="Desc_Macros">Calculates daily protein, carbohydrate, and fat grams based on your goal.</system:String>
+    <system:String x:Key="Label_TargetCal">DAILY CALORIE TARGET (kcal)</system:String>
+    <system:String x:Key="Label_Goal">GOAL</system:String>
+    <system:String x:Key="Goal_Cut">🔻 Fat Loss (Cutting)</system:String>
+    <system:String x:Key="Goal_Maintain">⚖️ Maintain Weight</system:String>
+    <system:String x:Key="Goal_Bulk">💪 Gain Muscle (Bulking)</system:String>
+    <system:String x:Key="Label_WorkoutType">ACTIVITY / WORKOUT TYPE</system:String>
+    <system:String x:Key="Work_1">Lightly active (cardio focused)</system:String>
+    <system:String x:Key="Work_2">Moderately active (mixed training)</system:String>
+    <system:String x:Key="Work_3">Very active (weight training)</system:String>
+    <system:String x:Key="Btn_CalcBroccoli">Calculate 🥦</system:String>
+    <system:String x:Key="Title_BMI">Body Mass Index (BMI)</system:String>
+    <system:String x:Key="Desc_BMI">Calculates BMI based on weight and height, showing your category per WHO classification.</system:String>
+    <system:String x:Key="Btn_CalcScale">Calculate ⚖️</system:String>
+    <system:String x:Key="Label_Underweight">Underweight</system:String>
+    <system:String x:Key="Label_Normal">Normal</system:String>
+    <system:String x:Key="Label_Overweight">Overweight</system:String>
+    <system:String x:Key="Label_Obese1">Obese I</system:String>
+    <system:String x:Key="Label_Obese2">Obese II+</system:String>
+    <system:String x:Key="Title_WeightGoal">Weight Goal Reality Analysis</system:String>
+    <system:String x:Key="Desc_WeightGoal">Enter your current weight, target weight, and time frame. Your goal's realistic nature in terms of health will be interpreted.</system:String>
+    <system:String x:Key="Label_CurrentWeight">CURRENT WEIGHT (kg)</system:String>
+    <system:String x:Key="Label_TargetWeight">TARGET WEIGHT (kg)</system:String>
+    <system:String x:Key="Label_Days">DURATION (days)</system:String>
+    <system:String x:Key="Btn_AnalyzeDart">Analyze 🎯</system:String>
+    <system:String x:Key="Label_Current">Current</system:String>
+    <system:String x:Key="Label_TargetText">Target</system:String>
+    <system:String x:Key="Title_VTaper">V-Taper Ratio Calculator</system:String>
+    <system:String x:Key="Desc_VTaper">Calculates your V-Taper ratio based on shoulder and waist measurements. Shows how close you are to the ideal silhouette.</system:String>
+    <system:String x:Key="Label_Shoulder">SHOULDER WIDTH - widest point (cm)</system:String>
+    <system:String x:Key="Label_WaistNavel">WAIST CIRCUMFERENCE - at navel (cm)</system:String>
+    <system:String x:Key="Btn_CalcMuseum">Calculate 🏛</system:String>
+    <system:String x:Key="Label_Ideal">Ideal</system:String>
+    <system:String x:Key="Title_Water">Daily Water Needs Calculator</system:String>
+    <system:String x:Key="Desc_Water">Calculates your daily water needs based on weight, age, activity level, and climate.</system:String>
+    <system:String x:Key="WaAct_1">Sedentary (desk job, little movement)</system:String>
+    <system:String x:Key="WaAct_2">Lightly active (1-3 days/week light exercise)</system:String>
+    <system:String x:Key="WaAct_3">Moderately active (3-5 days/week exercise)</system:String>
+    <system:String x:Key="WaAct_4">Very active (6-7 days/week intense exercise)</system:String>
+    <system:String x:Key="WaAct_5">Extra active (heavy physical job / athlete)</system:String>
+    <system:String x:Key="Label_Climate">CLIMATE / ENVIRONMENT</system:String>
+    <system:String x:Key="Clim_1">Temperate (normal indoors)</system:String>
+    <system:String x:Key="Clim_2">Hot climate or summer</system:String>
+    <system:String x:Key="Clim_3">Very hot / high humidity</system:String>
+    <system:String x:Key="Btn_CalcWater">Calculate 💧</system:String>
+
+    <!-- Calculator Results & Advice -->
+    <system:String x:Key="BMI_Result_Title">BMI: {0:F1}</system:String>
+    <system:String x:Key="BMI_Underweight_Desc">You are in the underweight category. It's recommended to consult a dietitian for a healthy weight gain plan.</system:String>
+    <system:String x:Key="BMI_Normal_Desc">You are in the normal weight category. Maintain your healthy lifestyle!</system:String>
+    <system:String x:Key="BMI_Overweight_Desc">You are in the overweight category. Increasing physical activity and a balanced diet are recommended.</system:String>
+    <system:String x:Key="BMI_Obese1_Desc">You are in the Obesity Class I category. Consulting a healthcare professional for weight management is recommended.</system:String>
+    <system:String x:Key="BMI_Obese2_Desc">You are in the Obesity Class II+ category. This may pose significant health risks; please consult a doctor.</system:String>
+
+    <system:String x:Key="BF_Result">Body Fat: %{0:F1}</system:String>
+    <system:String x:Key="BF_Advice_Male_Low">Low fat (Athlete level). Ensure sufficient essential fats in your diet.</system:String>
+    <system:String x:Key="BF_Advice_Male_Normal">Normal/Healthy range for men.</system:String>
+    <system:String x:Key="BF_Advice_Male_High">High fat. Consider a weight loss program for better health.</system:String>
+    <system:String x:Key="BF_Advice_Female_Low">Low fat (Athlete level). Monitor hormonal health.</system:String>
+    <system:String x:Key="BF_Advice_Female_Normal">Normal/Healthy range for women.</system:String>
+    <system:String x:Key="BF_Advice_Female_High">High fat. Consider increasing activity levels.</system:String>
+
+    <system:String x:Key="Calc_Result_BMR">BMR: {0:F0} kcal (Basal Metabolic Rate)</system:String>
+    <system:String x:Key="Calc_Result_TDEE">TDEE: {0:F0} kcal (Total Daily Expenditure)</system:String>
+    <system:String x:Key="Calc_Advice_Main">Maintenance: {0:F0} kcal</system:String>
+    <system:String x:Key="Calc_Advice_Lose">Fat Loss (Cutting): {0:F0} - {1:F0} kcal</system:String>
+    <system:String x:Key="Calc_Advice_Gain">Muscle Gain (Bulking): {0:F0} - {1:F0} kcal</system:String>
+
+    <system:String x:Key="Macro_Result">Protein: {0}g  |  Carbs: {1}g  |  Fat: {2}g</system:String>
+    <system:String x:Key="Macro_Advice">Energy from Protein: %{0}  |  Carbs: %{1}  |  Fat: %{2}</system:String>
+
+    <system:String x:Key="WG_Result">Target: {0} kg in {1} days</system:String>
+    <system:String x:Key="WG_ChangeRate">Weekly Change: {0:F2} kg</system:String>
+    <system:String x:Key="WG_Status_VeryEasy">Status: Very Easy / Maintenance ⚖️</system:String>
+    <system:String x:Key="WG_Status_Healthy">Status: Healthy &amp; Realistic ✅</system:String>
+    <system:String x:Key="WG_Status_Hard">Status: Challenging / Intense ⚠️</system:String>
+    <system:String x:Key="WG_Status_Expert">Status: Expert / Potential Muscle Loss 🛑</system:String>
+    <system:String x:Key="WG_Status_Dangerous">Status: DANGEROUS / Unrealistic 🚫</system:String>
+    <system:String x:Key="WG_Advice_Loss">Focus on high protein intake to preserve muscle mass during this deficit.</system:String>
+    <system:String x:Key="WG_Advice_Gain">Focus on progressive overload and sufficient surplus for lean muscle gain.</system:String>
+
+    <system:String x:Key="VTaper_Result">Shoulder/Waist Ratio (SHR): {0:F2}</system:String>
+    <system:String x:Key="VTaper_Excellent">Excellent V-Taper</system:String>
+    <system:String x:Key="VTaper_Ideal">Ideal V-Taper</system:String>
+    <system:String x:Key="VTaper_Borderline">Borderline Ideal</system:String>
+    <system:String x:Key="VTaper_NeedsWork">Needs Improvement</system:String>
+    <system:String x:Key="VTaper_Far">V-Taper Far</system:String>
+    <system:String x:Key="VTaper_Shoulder_Expand">You should expand your shoulders by ~{0:F1} cm (weight training).</system:String>
+    <system:String x:Key="VTaper_Shoulder_Perfect">Your shoulder width is perfect!</system:String>
+    <system:String x:Key="VTaper_Waist_Thin">You should thin your waist by ~{0:F1} cm (diet + fat loss).</system:String>
+    <system:String x:Key="VTaper_Waist_Perfect">Your waist measurement is already within the ideal range — congratulations!</system:String>
+    <system:String x:Key="VTaper_Detail_Format">Current shoulder/waist ratio (SHR): {0:F2}  (ideal: ≥{1:F2})\n\n📐 Ideal measurements based on height ({2:F0} cm):\n   • Ideal shoulder width: {3:F1} cm  (current: {4:F1} cm)\n   • Ideal waist circumference:    {5:F1} cm  (current: {6:F1} cm)\n\n💡 {7}\n💡 {8}</system:String>
+    <system:String x:Key="VTaper_Ideal_Male">Target for Men (Golden Ratio): 1.618</system:String>
+    <system:String x:Key="VTaper_Ideal_Female">Target for Women: 1.40</system:String>
+
+    <system:String x:Key="Water_Result">Daily Water Goal: {0:F1} Liters ({1} glasses)</system:String>
+    <system:String x:Key="Water_Advice">Adjust by +/- 500ml based on sweating and thirst.</system:String>
+    
+    <system:String x:Key="RIR_Result">Estimated 1RM: {0:F1} kg</system:String>
+    <system:String x:Key="RIR_Detail_Format">Current load: {0:F1} kg × {1:F0} reps + {2} RIR\n\nRecommended training loads:</system:String>
+    <system:String x:Key="RIR_Level_95">  • 95%  → {0,6:F1} kg   (1-2 reps)</system:String>
+    <system:String x:Key="RIR_Level_90">  • 90%  → {0,6:F1} kg   (3 reps)</system:String>
+    <system:String x:Key="RIR_Level_85">  • 85%  → {0,6:F1} kg   (4-5 reps)</system:String>
+    <system:String x:Key="RIR_Level_80">  • 80%  → {0,6:F1} kg   (6-8 reps)</system:String>
+    <system:String x:Key="RIR_Level_75">  • 75%  → {0,6:F1} kg   (8-10 reps)</system:String>
+    <system:String x:Key="RIR_Level_70">  • 70%  → {0,6:F1} kg   (10-12 reps)</system:String>
+    <system:String x:Key="RIR_Level_65">  • 65%  → {0,6:F1} kg   (12-15 reps)</system:String>
+
+    <system:String x:Key="BF_Category_Essential">⚡ Essential Fat (elite)</system:String>
+    <system:String x:Key="BF_Category_Athlete">🏆 Athlete</system:String>
+    <system:String x:Key="BF_Category_Fit">✅ Fit</system:String>
+    <system:String x:Key="BF_Category_Acceptable">🟡 Acceptable</system:String>
+    <system:String x:Key="BF_Category_Obese">🔴 Obese</system:String>
+    <system:String x:Key="BF_Ideal_Men">Ideal for men: 10–17%</system:String>
+    <system:String x:Key="BF_Ideal_Women">Ideal for women: 18–24%</system:String>
+    <system:String x:Key="BF_LeanMass_Format">Lean body mass: approx. {0:F1}% (lean tissue)</system:String>
+
+    <system:String x:Key="Calc_TDEE_Total">TDEE: {0:F0} kcal / day</system:String>
+    <system:String x:Key="Calc_BMR_Format">BMR (basal metabolic rate): {0:F0} kcal</system:String>
+    <system:String x:Key="Calc_Daily_Goals">Daily calories by goal:</system:String>
+    <system:String x:Key="Calc_Goal_Lose">  🔻 Fat loss  →  {0:F0} kcal  (−500)</system:String>
+    <system:String x:Key="Calc_Goal_Maintain">  ⚖️ Maintain  →  {0:F0} kcal</system:String>
+    <system:String x:Key="Calc_Goal_Gain">  💪 Muscle gain →  {0:F0} kcal  (+300)</system:String>
+
+    <system:String x:Key="Macro_Goal_Lose">Fat Loss</system:String>
+    <system:String x:Key="Macro_Goal_Maintain">Maintain</system:String>
+    <system:String x:Key="Macro_Goal_Gain">Muscle Gain</system:String>
+    <system:String x:Key="Macro_Detail_Protein">🥩 Protein:       {0,6:F0} g   ({1:F0} kcal)  — {2:F0}%</system:String>
+    <system:String x:Key="Macro_Detail_Fat">🥑 Fat:           {0,6:F0} g   ({1:F0} kcal)  — {2:F0}%</system:String>
+    <system:String x:Key="Macro_Detail_Carbs">🍞 Carbs:         {0,6:F0} g   ({1:F0} kcal)  — {2:F0}%</system:String>
+    <system:String x:Key="Macro_Note">Protein pref.: {0:F1} g/kg body weight\nNote: Values are estimates and vary individually.</system:String>
+
+    <system:String x:Key="BMI_Category_Underweight">🔵 Underweight</system:String>
+    <system:String x:Key="BMI_Category_Normal">🟢 Normal Weight</system:String>
+    <system:String x:Key="BMI_Category_Overweight">🟡 Overweight</system:String> 
+    <system:String x:Key="BMI_Category_Obese1">🟠 Obese (Class I)</system:String>
+    <system:String x:Key="BMI_Category_Obese2">🔴 Obese (Class II+)</system:String>
+
+    <system:String x:Key="BMI_Detail_Underweight">BMI under 18.5 — low weight risk</system:String>
+    <system:String x:Key="BMI_Detail_Normal">BMI 18.5–24.9 — healthy range</system:String>
+    <system:String x:Key="BMI_Detail_Overweight">BMI 25–29.9 — mild health risk</system:String>
+    <system:String x:Key="BMI_Detail_Obese1">BMI 30–34.9 — moderate health risk</system:String>
+    <system:String x:Key="BMI_Detail_Obese2">BMI 35 and above — high health risk</system:String>
+
+    <system:String x:Key="BMI_Indicator_Underweight">► Left zone of the scale</system:String>
+    <system:String x:Key="BMI_Indicator_Normal">► Normal zone of the scale ✅</system:String>
+    <system:String x:Key="BMI_Indicator_Overweight">► Third zone of the scale</system:String>
+    <system:String x:Key="BMI_Indicator_Obese1">► Fourth zone of the scale</system:String>
+    <system:String x:Key="BMI_Indicator_Obese2">► Right zone of the scale</system:String>
+    <system:String x:Key="BMI_Ideal_Format">Normal weight for your height: {0:F1}–{1:F1} kg</system:String>
+
+    <system:String x:Key="WG_Result_Format">Goal: {0:F1} kg → {1:F1} kg  ({2}{3:F1} kg, in {4:F0} days)</system:String>
+    <system:String x:Key="WG_Weekly_Format">Avg weekly change: {0}{1:F2} kg/week</system:String>
+    <system:String x:Key="WG_DailyCal_Format">Req. daily calorie {0}: ~{1:F0} kcal</system:String>
+    <system:String x:Key="WG_Surplus">surplus</system:String>
+    <system:String x:Key="WG_Deficit">deficit</system:String>
+
+    <system:String x:Key="Water_Rating_Low">⚠️ Low</system:String>
+    <system:String x:Key="Water_Rating_Normal">✅ Normal</system:String>
+    <system:String x:Key="Water_Rating_High">💪 High (active)</system:String>
+    <system:String x:Key="Water_Rating_Athlete">🏊 Athlete level</system:String>
+    <system:String x:Key="Water_Clim_Temperate">temperate</system:String>
+    <system:String x:Key="Water_Clim_Hot">hot</system:String>
+    <system:String x:Key="Water_Clim_VeryHot">very hot/humid</system:String>
+    <system:String x:Key="Water_Detail_Format">Base water need ({0:F0} kg × {1} ml): {2:F0} ml\nActivity addition: +{3:F0} ml\nClimate factor ({4}): ×{5:F2}\n\n📊 Total: {6:F0} ml  ≈  {7:F1} liters  ≈  {8} glasses\n\n⏰ Suggested hourly breakdown (16 hours awake):\n   Morning 8-12:   {9:F1} glasses\n   Noon    12-17:  {10:F1} glasses\n   Evening 17-22:  {11:F1} glasses\n\n💡 Coffee, tea, juice etc. also count as fluid intake.\n   If urine is light yellow, you are drinking enough.</system:String>
+
+    <system:String x:Key="Sup_Title_Rec">🏆 Recommended Supplements For You</system:String>
+    <system:String x:Key="Sup_Analysis_Format">Analysis: {0} | Weight: {1:F0} kg | Training: {2}</system:String>
+    <system:String x:Key="Sup_Minimal">Minimal</system:String>
+    <system:String x:Key="Sup_Comprehensive">Comprehensive</system:String>
+    <system:String x:Key="Sup_Yes">Yes</system:String>
+    <system:String x:Key="Sup_No">No</system:String>
+    <system:String x:Key="Sup_None_Found">Congratulations! No additional supplementation needed based on your inputs.</system:String>
+    <system:String x:Key="Sup_Priority_High">HIGH</system:String>
+    <system:String x:Key="Sup_Priority_Medium">MEDIUM</system:String>
+    <system:String x:Key="Sup_Priority_Low">LOW</system:String>
+
+    <!-- Supplement Test -->
+    <system:String x:Key="Tab_Supplement">💊 Supplement</system:String>
+    <system:String x:Key="Title_Supplement">Supplement Needs Test</system:String>
+    <system:String x:Key="Desc_Supplement">Determine which supplements you need based on your lifestyle, nutrition habits, and symptoms.</system:String>
+    <system:String x:Key="Sup_Section1">🏋️ BASIC INFO</system:String>
+    <system:String x:Key="Sup_Weight">Your Weight (kg)</system:String>
+    <system:String x:Key="Sup_WeightDesc">Your body weight is important for determining dosages.</system:String>
+    <system:String x:Key="Sup_AnalysisType">Analysis Type?</system:String>
+    <system:String x:Key="Sup_AnalysisMinimal">Minimal — I have a limited budget and aim for cost efficiency.</system:String>
+    <system:String x:Key="Sup_AnalysisComprehensive">Comprehensive — I want the best fitness and health results in a reasonable way.</system:String>
+    <system:String x:Key="Sup_WeightTraining">Do You Weight Train?</system:String>
+    <system:String x:Key="Sup_Section2">🍽️ NUTRITION ANALYSIS</system:String>
+    <system:String x:Key="Sup_Protein">Protein Intake</system:String>
+    <system:String x:Key="Sup_ProteinDesc">Rate your protein intake out of 10 in terms of variety, quality, and amount. For example, select 10 if you consume plenty of protein from diverse animal sources, or 1 if you eat a limited vegetarian diet with little protein.</system:String>
+    <system:String x:Key="Sup_MealRegularity">Meal Regularity</system:String>
+    <system:String x:Key="Sup_MealRegularityDesc">Give a high score if your meals are very regular and on schedule, low score if you eat randomly.</system:String>
+    <system:String x:Key="Sup_Digestion">Digestion &amp; Bowel Health</system:String>
+    <system:String x:Key="Sup_DigestionDesc">Give a low score if you experience gas, bloating, nausea, constipation, diarrhea, abdominal pain, etc.</system:String>
+    <system:String x:Key="Sup_VeggieFruit">Vegetable &amp; Fruit Variety</system:String>
+    <system:String x:Key="Sup_VeggieFruitDesc">Give a high score if you consume several servings of diverse vegetables and fruits daily.</system:String>
+    <system:String x:Key="Sup_Satiety">Satiety</system:String>
+    <system:String x:Key="Sup_SatietyDesc">Give a high score if you feel full and satisfied throughout the day. Low score if your appetite is problematic or blood sugar drops.</system:String>
+    <system:String x:Key="Sup_Section3">🌙 LIFESTYLE &amp; SYMPTOMS</system:String>
+    <system:String x:Key="Sup_Sleep">Sleep &amp; Feeling Fresh</system:String>
+    <system:String x:Key="Sup_SleepDesc">Give a high score if you wake up feeling rested and fresh.</system:String>
+    <system:String x:Key="Sup_SymptomsTitle">Check All That Apply</system:String>
+    <system:String x:Key="Sup_SymptomsSubtitle">Multiple selections allowed.</system:String>
+    <system:String x:Key="Sup_ChkWinter">It's winter or sunlight is weak</system:String>
+    <system:String x:Key="Sup_ChkSweat">I sweat excessively during sports or daily life</system:String>
+    <system:String x:Key="Sup_ChkNoVeggie">I don't like eating vegetables</system:String>
+    <system:String x:Key="Sup_ChkLowEnergy">My energy is low, I feel weak</system:String>
+    <system:String x:Key="Sup_ChkPoorSleep">My sleep is not satisfying</system:String>
+    <system:String x:Key="Sup_ChkCantSleep">I have trouble falling asleep</system:String>
+    <system:String x:Key="Sup_ChkStress">My stress is high and I struggle to relax</system:String>
+    <system:String x:Key="Sup_Section4">⚡ TRAINING</system:String>
+    <system:String x:Key="Sup_TrainingEnergy">Energy During Training</system:String>
+    <system:String x:Key="Sup_TrainingEnergyDesc">Give a high score if you feel strong and energetic.</system:String>
+    <system:String x:Key="Sup_TrainingTitle">During Training</system:String>
+    <system:String x:Key="Sup_ChkTrainOk">I feel energetic and strong enough</system:String>
+    <system:String x:Key="Sup_ChkWeakPump">My pump feeling is weak</system:String>
+    <system:String x:Key="Sup_ChkTrainFaint">I feel faint and weak</system:String>
+    <system:String x:Key="Btn_AnalyzeSupplement">Analyze 💊</system:String>
+    <system:String x:Key="Sup_ResultTitle">Recommended Supplements For You</system:String>
+    <system:String x:Key="Sup_NoResult">Congratulations! Based on your current status, no additional supplementation is needed.</system:String>
+    <system:String x:Key="Sup_PriorityHigh">High Priority</system:String>
+    <system:String x:Key="Sup_PriorityMed">Medium Priority</system:String>
+    <system:String x:Key="Sup_PriorityLow">Low Priority</system:String>
+    <system:String x:Key="Sup_Dose">Dose</system:String>
+    <system:String x:Key="Sup_Timing">Timing</system:String>
+    <system:String x:Key="Sup_RestartTest">Reset Test 🔄</system:String>
+
+    <!-- Project Status -->
+    <system:String x:Key="Text_NoTasksYet">No tasks yet</system:String>
+    <system:String x:Key="Text_TasksCompleted">tasks completed</system:String>
+    <system:String x:Key="Label_LitersPerDay">liters / day</system:String>
+
+    <!-- MainViewModel Localized Strings -->
+    <system:String x:Key="Text_NewTaskDefault">New task</system:String>
+    <system:String x:Key="Text_PagePrefix">Page</system:String>
+    <system:String x:Key="Msg_DayCopied">{0} copied!</system:String>
+    <system:String x:Key="Msg_CopiedTitle">Copied</system:String>
+    <system:String x:Key="Msg_PasteToMonthConfirm">Paste to all days in {0}?</system:String>
+    <system:String x:Key="Msg_PasteToMonthTitle">Paste to Month</system:String>
+    <system:String x:Key="Msg_PageCopied">'{0}' page copied!</system:String>
+    <system:String x:Key="Title_PastePageDays">Paste Page — Select Days</system:String>
+
+    <!-- Supplements Definitions -->
+    <system:String x:Key="Sup_01_Name">Creatine Monohydrate</system:String>
+    <system:String x:Key="Sup_01_Dose">3–5 g/day</system:String>
+    <system:String x:Key="Sup_01_Time">Every day at a fixed time, with or after a meal</system:String>
+    <system:String x:Key="Sup_01_Note">The most well-studied supplement. Increases strength 5–15%, supports lean mass. No loading needed.</system:String>
+    
+    <system:String x:Key="Sup_02_Name">Whey Protein</system:String>
+    <system:String x:Key="Sup_02_Dose">Target: ~{0:F0} g/day total protein ({1} g/kg)</system:String>
+    <system:String x:Key="Sup_02_Time">Post-workout within 30–60 min, or to complete daily protein</system:String>
+    <system:String x:Key="Sup_02_Note">Whey isolate is fastest absorbing. Not superior to real food — use to fill gaps.</system:String>
+    
+    <system:String x:Key="Sup_03_Name">Vitamin D3 + K2</system:String>
+    <system:String x:Key="Sup_03_Dose">2000–4000 IU D3 + 100–200 mcg K2/day</system:String>
+    <system:String x:Key="Sup_03_Time">With a fatty meal (fat-soluble)</system:String>
+    <system:String x:Key="Sup_03_Note">50% of athletes are deficient. Supports muscle strength, hormonal balance, and immunity. Essential Oct–Apr.</system:String>
+    
+    <system:String x:Key="Sup_04_Name">Magnesium Bisglycinate</system:String>
+    <system:String x:Key="Sup_04_Dose">200–400 mg/day</system:String>
+    <system:String x:Key="Sup_04_Time">Glycinate form at bedtime for relaxation and deep sleep</system:String>
+    <system:String x:Key="Sup_04_Note">60% of athletes are deficient. Reduces cramps, improves sleep quality, insulin sensitivity.</system:String>
+    
+    <system:String x:Key="Sup_05_Name">Omega-3 (EPA/DHA)</system:String>
+    <system:String x:Key="Sup_05_Dose">2–3 g/day (≥1 g EPA)</system:String>
+    <system:String x:Key="Sup_05_Time">With meals, consistently every day</system:String>
+    <system:String x:Key="Sup_05_Note">Increases muscle protein synthesis, reduces post-exercise inflammation. Prefer fish oil.</system:String>
+
+    <system:String x:Key="Sup_06_Name">Multivitamin / Multimineral</system:String>
+    <system:String x:Key="Sup_06_Dose">1 tablet/day (per label directions)</system:String>
+    <system:String x:Key="Sup_06_Time">With breakfast or lunch</system:String>
+    <system:String x:Key="Sup_06_Note">Fills micronutrient gaps from poor diet variety. Not a substitute for real food.</system:String>
+
+    <system:String x:Key="Sup_07_Name">Caffeine (Pre-workout)</system:String>
+    <system:String x:Key="Sup_07_Dose">3–6 mg/kg → {0:F0}–{1:F0} mg</system:String>
+    <system:String x:Key="Sup_07_Time">45–60 min before training. Avoid after 2 PM for sleep.</system:String>
+    <system:String x:Key="Sup_07_Note">Improves endurance 2–4%, strength and focus. Take 1–2 days off/week for tolerance.</system:String>
+
+    <system:String x:Key="Sup_08_Name">Probiotic</system:String>
+    <system:String x:Key="Sup_08_Dose">10–50 billion CFU/day, multi-strain</system:String>
+    <system:String x:Key="Sup_08_Time">On empty stomach in the morning or before bed</system:String>
+    <system:String x:Key="Sup_08_Note">Restores gut flora balance. Look for Lactobacillus + Bifidobacterium strains.</system:String>
+
+    <system:String x:Key="Sup_09_Name">Electrolyte</system:String>
+    <system:String x:Key="Sup_09_Dose">Sodium 500–1500 mg, Potassium 200–400 mg per session</system:String>
+    <system:String x:Key="Sup_09_Time">During and after training, especially in hot weather</system:String>
+    <system:String x:Key="Sup_09_Note">Prevents dehydration and performance loss from excessive sweating.</system:String>
+
+    <system:String x:Key="Sup_10_Name">Zinc + Vitamin C</system:String>
+    <system:String x:Key="Sup_10_Dose">Zinc 15–30 mg + Vitamin C 500–1000 mg/day</system:String>
+    <system:String x:Key="Sup_10_Time">With a meal (zinc can cause nausea on empty stomach)</system:String>
+    <system:String x:Key="Sup_10_Note">Supports immune function, testosterone production, and antioxidant defense.</system:String>
+
+    <system:String x:Key="Sup_11_Name">Beta-Alanine</system:String>
+    <system:String x:Key="Sup_11_Dose">3.2–6.4 g/day</system:String>
+    <system:String x:Key="Sup_11_Time">Split into small doses (0.8–1g × 4–6) to minimize tingling</system:String>
+    <system:String x:Key="Sup_11_Note">Buffers pH in 60–240s exercises. Tingling is normal and harmless. Min 4 weeks for effect.</system:String>
+
+    <system:String x:Key="Sup_12_Name">Fiber Supplement (Psyllium)</system:String>
+    <system:String x:Key="Sup_12_Dose">5–10 g/day</system:String>
+    <system:String x:Key="Sup_12_Time">With plenty of water, between meals</system:String>
+    <system:String x:Key="Sup_12_Note">Improves digestion, increases satiety, regulates blood sugar.</system:String>
+
+    <system:String x:Key="Sup_13_Name">Melatonin</system:String>
+    <system:String x:Key="Sup_13_Dose">0.5–3 mg/day</system:String>
+    <system:String x:Key="Sup_13_Time">30–60 min before bedtime, in a dark room</system:String>
+    <system:String x:Key="Sup_13_Note">Start with the lowest dose (0.5 mg). For short-term use to reset sleep cycle.</system:String>
+
+    <system:String x:Key="Sup_PriorityLabel">Priority:</system:String>
+    <system:String x:Key="Sup_DoseLabel">Dose:</system:String>
+    <system:String x:Key="Sup_TimingLabel">Timing:</system:String>
+    <system:String x:Key="Btn_ResetTest">Reset Test 🔄</system:String>
+</ResourceDictionary>

@@ -1,0 +1,113 @@
+<Window x:Class="DailyPlanner.Views.ReminderPickerDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Title_AddReminder}"
+        Height="380" Width="320"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource ContentBackgroundBrush}"
+        FontFamily="Segoe UI">
+
+    <StackPanel Margin="16">
+
+        <!-- Header -->
+        <TextBlock Text="{DynamicResource Text_ReminderPickDate}"
+                   FontSize="13" FontWeight="SemiBold"
+                   Foreground="{DynamicResource PrimaryTextBrush}"
+                   Margin="0,0,0,10"/>
+
+        <!-- Calendar -->
+        <Calendar x:Name="ReminderCalendar"
+                  HorizontalAlignment="Center"
+                  DisplayDateStart="{x:Static sys:DateTime.Today}"
+                  SelectionMode="SingleDate"
+                  xmlns:sys="clr-namespace:System;assembly=mscorlib"/>
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,14,0,0">
+
+            <Button Content="{DynamicResource Text_RemoveReminder}"
+                    x:Name="RemoveBtn"
+                    Margin="0,0,8,0"
+                    Padding="10,6"
+                    Cursor="Hand"
+                    FontSize="12"
+                    Foreground="#EF4444"
+                    Background="Transparent"
+                    BorderBrush="#EF4444"
+                    BorderThickness="1"
+                    Click="Remove_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FFE5E5"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Content="{DynamicResource Text_Cancel}"
+                    Margin="0,0,8,0"
+                    Padding="10,6"
+                    Cursor="Hand"
+                    FontSize="12"
+                    Foreground="{DynamicResource SecondaryTextBrush}"
+                    Background="Transparent"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    Click="Cancel_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Content="{DynamicResource Text_Ok}"
+                    Padding="14,6"
+                    Cursor="Hand"
+                    FontSize="12"
+                    FontWeight="SemiBold"
+                    Foreground="White"
+                    Background="{DynamicResource AccentBrush}"
+                    BorderThickness="0"
+                    Click="Ok_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.85"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </StackPanel>
+    </StackPanel>
+</Window>

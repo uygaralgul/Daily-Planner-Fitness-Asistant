@@ -1,0 +1,507 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Sidebar -->
+    <system:String x:Key="Text_Exit">Çıkış</system:String>
+    <system:String x:Key="Text_NightMode">Gece Modu</system:String>
+    <system:String x:Key="Text_Calculators">Hesaplayıcı</system:String>
+    <system:String x:Key="Text_Notes">Notlar</system:String>
+    <system:String x:Key="Text_Stats">İstatistik</system:String>
+
+    <!-- Main Content Header -->
+    <system:String x:Key="Text_Theme">🎨 Tema</system:String>
+
+    <!-- Action Buttons -->
+    <system:String x:Key="Text_CopyDay">Günü Kopyala</system:String>
+    <system:String x:Key="Text_PasteDay">Günü Yapıştır</system:String>
+    <system:String x:Key="Text_CopyPage">Sayfayı Kopyala</system:String>
+    <system:String x:Key="Text_PastePage">Sayfayı Yapıştır</system:String>
+    <system:String x:Key="Text_PasteToMonth">Tüm Aya Yapıştır</system:String>
+    <system:String x:Key="Text_ClearDay">Günü Temizle</system:String>
+    
+    <!-- Task List -->
+    <system:String x:Key="Text_AddTask">Görev Ekle</system:String>
+
+    <!-- Pages Panel -->
+    <system:String x:Key="Text_PagesHeader">SAYFALAR</system:String>
+    <system:String x:Key="Text_AddPage">+ Sayfa Ekle</system:String>
+    
+    <!-- Language Toggle -->
+    <system:String x:Key="Text_CurrentLanguage">EN</system:String>
+
+    <!-- Code Behind Strings -->
+    <system:String x:Key="Text_PickColor">Renk Seç</system:String>
+    <system:String x:Key="Text_ClearColor">↩ Rengi Temizle</system:String>
+    <system:String x:Key="Text_BackgroundTheme">Arka Plan Teması</system:String>
+    <system:String x:Key="Text_ThemeNone">❌ Sade (Yok)</system:String>
+    <system:String x:Key="Text_ThemeStudy">📚 Ders / Eğitim</system:String>
+    <system:String x:Key="Text_ThemeSport">🏋️ Spor / Fitness</system:String>
+    <system:String x:Key="Text_ThemeFood">🍳 Yemek / Mutfak</system:String>
+    <system:String x:Key="Text_ThemeWork">💼 İş / Planlama</system:String>
+    <system:String x:Key="Text_ThemeMusic">🎵 Müzik / Sanat</system:String>
+
+    <!-- Stats Window Strings -->
+    <system:String x:Key="Title_Stats">📊 İstatistikler</system:String>
+    <system:String x:Key="Text_StatsHeader">📊 Tamamlama İstatistikleri</system:String>
+    <system:String x:Key="Text_StatsSub">Görev tamamlama oranları — haftalık, aylık ve yıllık görünüm</system:String>
+    <system:String x:Key="Text_Weekly">Haftalık</system:String>
+    <system:String x:Key="Text_Monthly">Aylık</system:String>
+    <system:String x:Key="Text_Yearly">Yıllık</system:String>
+    <system:String x:Key="Text_Avg">Ort. </system:String>
+    <system:String x:Key="Text_Best">En iyi </system:String>
+    <system:String x:Key="Text_Total">Toplam </system:String>
+    <system:String x:Key="Text_Close">Kapat</system:String>
+    <system:String x:Key="Text_Stat80">≥80% Tamamlandı</system:String>
+    <system:String x:Key="Text_Stat40">&lt;40% / Yarım</system:String>
+    <system:String x:Key="Text_StatEmpty">Boş gün</system:String>
+
+    <!-- Notes Window Strings -->
+    <system:String x:Key="Title_Notes">📝 Not Defteri</system:String>
+    <system:String x:Key="Text_SidebarColor">Kenar çubuğu rengini değiştir</system:String>
+    <system:String x:Key="Text_MyNotes">NOTLARIM</system:String>
+    <system:String x:Key="Text_SidebarColorHeader">Kenar Çubuğu Rengi</system:String>
+    <system:String x:Key="Text_ColorDefault">Varsayılan</system:String>
+    <system:String x:Key="Text_ColorDarkNavy">Koyu Lacivert</system:String>
+    <system:String x:Key="Text_ColorDarkGreen">Koyu Yeşil</system:String>
+    <system:String x:Key="Text_ColorDarkPurple">Koyu Mor</system:String>
+    <system:String x:Key="Text_ColorDarkRed">Koyu Kırmızı</system:String>
+    <system:String x:Key="Text_ColorDarkBrown">Koyu Kahve</system:String>
+    <system:String x:Key="Text_ColorSteelBlue">Çelik Mavi</system:String>
+    <system:String x:Key="Text_ColorAnthracite">Antrasit</system:String>
+    <system:String x:Key="Text_ColorForestGreen">Orman Yeşili</system:String>
+    <system:String x:Key="Text_ColorNightBlue">Gece Mavisi</system:String>
+    <system:String x:Key="Text_ColorDarkEmerald">Koyu Zümrüt</system:String>
+    <system:String x:Key="Text_ColorDarkMaroon">Koyu Bordo</system:String>
+
+    <system:String x:Key="Text_ErrorAddingNote">Yeni not eklenirken hata oluştu</system:String>
+    <system:String x:Key="Text_ErrorLoadingNote">Not yüklenirken hata oluştu</system:String>
+    <system:String x:Key="Text_Error">Hata</system:String>
+    <system:String x:Key="Msg_Error">Hata</system:String>
+    <system:String x:Key="Msg_InvalidInput">Lütfen geçerli değerler girin.</system:String>
+    <system:String x:Key="Text_LastEdited">Son düzenleme: {0}</system:String>
+    <system:String x:Key="Text_ReminderSet">Hatırlatıcı eklendi: {0}</system:String>
+    <system:String x:Key="Text_ReminderRemoved">Hatırlatıcı kaldırıldı.</system:String>
+    <system:String x:Key="Text_DeleteNoteConfirm">'{0}' notu silinsin mi?</system:String>
+    <system:String x:Key="Text_DeleteNoteTitle">Notu Sil</system:String>
+    <system:String x:Key="Text_NewNote">Yeni Not</system:String>
+    <system:String x:Key="Text_Delete">🗑 Sil</system:String>
+    <system:String x:Key="Text_SelectOrCreateNote">Bir not seçin veya yeni not oluşturun</system:String>
+    <system:String x:Key="Text_Bold">Kalın (Ctrl+B)</system:String>
+    <system:String x:Key="Text_Italic">İtalik (Ctrl+I)</system:String>
+    <system:String x:Key="Text_Underline">Altı çizili (Ctrl+U)</system:String>
+    <system:String x:Key="Text_FontSize">Yazı boyutu</system:String>
+    <system:String x:Key="Text_SelectColor">Yazı rengi seç</system:String>
+    <system:String x:Key="Text_Red">Kırmızı</system:String>
+    <system:String x:Key="Text_Orange">Turuncu</system:String>
+    <system:String x:Key="Text_Yellow">Sarı</system:String>
+    <system:String x:Key="Text_Green">Yeşil</system:String>
+    <system:String x:Key="Text_Blue">Mavi</system:String>
+    <system:String x:Key="Text_Purple">Mor</system:String>
+    <system:String x:Key="Text_Pink">Pembe</system:String>
+    <system:String x:Key="Text_DefaultColor">Varsayılan renk</system:String>
+    <system:String x:Key="Text_SelectNote">Notu seçin</system:String>
+    <system:String x:Key="Text_NoNotesYet">Henüz not yok</system:String>
+    <system:String x:Key="Text_EmptyNoteGuidance">Sol taraftaki '＋ Yeni Not' butonuna tıklayarak başlayın.</system:String>
+
+    <!-- Reminder Strings -->
+    <system:String x:Key="Title_AddReminder">🔔 Hatırlatıcı Ekle</system:String>
+    <system:String x:Key="Text_ReminderPickDate">Hatırlatıcı tarihi seçin:</system:String>
+    <system:String x:Key="Text_RemoveReminder">Hatırlatıcıyı Kaldır</system:String>
+    <system:String x:Key="Text_Cancel">İptal</system:String>
+    <system:String x:Key="Text_Ok">Tamam</system:String>
+    <system:String x:Key="Title_Reminder">🔔 Hatırlatıcı</system:String>
+    <system:String x:Key="Text_ReminderAlert">Hatırlatıcı!</system:String>
+    <system:String x:Key="Text_ReminderSubtitle">Bugün bir notunuz var.</system:String>
+    <system:String x:Key="Text_Show">📝 Göster</system:String>
+
+    <!-- Profile & Template Strings -->
+    <system:String x:Key="Title_Profile">Profil ve Şablonlar</system:String>
+    <system:String x:Key="Text_MyTemplates">Şablonlarım</system:String>
+    <system:String x:Key="Text_NewTemplate">+ Yeni Şablon</system:String>
+    <system:String x:Key="Text_TemplateName">Şablon Adı:</system:String>
+    <system:String x:Key="Text_SaveAndApply">Kaydet ve Uygula</system:String>
+    <system:String x:Key="Text_DeleteText">Sil</system:String>
+    <system:String x:Key="Text_ProfileAddTask">+ Görev Ekle</system:String>
+
+    <!-- Calendar Dialog Strings -->
+    <system:String x:Key="Title_ClearDays">Temizle — Günleri Seç</system:String>
+    <system:String x:Key="Text_SelectDaysToClear">Temizlenecek Günleri Seç</system:String>
+    <system:String x:Key="Text_SelectAll">Tümünü Seç</system:String>
+    <system:String x:Key="Text_ClearSelection">Seçimi Temizle</system:String>
+    <system:String x:Key="Text_Clear">Temizle</system:String>
+    <system:String x:Key="Title_PasteDays">Yapıştır — Günleri Seç</system:String>
+    <system:String x:Key="Text_SelectDaysToPaste">Yapıştırılacak Günleri Seç</system:String>
+    <system:String x:Key="Text_PasteText">Yapıştır</system:String>
+    <system:String x:Key="Text_Mon">Pzt</system:String>
+    <system:String x:Key="Text_Tue">Sal</system:String>
+    <system:String x:Key="Text_Wed">Çar</system:String>
+    <system:String x:Key="Text_Thu">Per</system:String>
+    <system:String x:Key="Text_Fri">Cum</system:String>
+    <system:String x:Key="Text_Sat">Cmt</system:String>
+    <system:String x:Key="Text_Sun">Paz</system:String>
+    <!-- Calculators Window Strings -->
+    <system:String x:Key="Title_Calculators">Fitness Hesaplayıcıları</system:String>
+    <system:String x:Key="Title_FitnessCalculators">🏋️  Fitness Hesaplayıcıları</system:String>
+    <system:String x:Key="ToolTip_MindGuide">Zihin Rehberi</system:String>
+    <system:String x:Key="ToolTip_AnatomyMap">Anatomi Haritası — Kas grupları ve egzersizler</system:String>
+    <system:String x:Key="ToolTip_SportGuide">Sporcu Rehberi</system:String>
+    <system:String x:Key="ToolTip_CalorieBurn">Egzersiz kalori tablosu</system:String>
+    <system:String x:Key="ToolTip_MeasurementGuide">Ölçüm rehberi</system:String>
+    <!-- Calculators Window -->
+    <system:String x:Key="Tab_RIR">💪 RIR</system:String>
+    <system:String x:Key="Tab_BodyFat">🔥 Yağ</system:String>
+    <system:String x:Key="Tab_Calories">🍽 Kalori</system:String>
+    <system:String x:Key="Tab_Macros">🥩 Makro</system:String>
+    <system:String x:Key="Tab_BMI">⚖️ VKİ</system:String>
+    <system:String x:Key="Tab_WeightGoal">🎯 Kilo Hedefi</system:String>
+    <system:String x:Key="Tab_VTaper">📐 V-Vücut</system:String>
+    <system:String x:Key="Tab_Water">💧 Su</system:String>
+
+    <system:String x:Key="Title_Rir">Reps In Reserve Hesaplayıcı</system:String>
+    <system:String x:Key="Desc_Rir">Mevcut çalışma ağırlığınız, tekrar sayınız ve rezervdeki tekrar (RIR) değerinizden 1RM ve önerilen yükler hesaplanır.</system:String>
+    <system:String x:Key="Label_WorkingWeight">ÇALIŞMA AĞIRLIĞI (kg)</system:String>
+    <system:String x:Key="Label_RepsDone">YAPILAN TEKRAR (Reps)</system:String>
+    <system:String x:Key="Label_RIR">REZERVDEKİ TEKRAR (RIR)</system:String>
+    <system:String x:Key="Rir_0">0 RIR — Maksimal efor</system:String>
+    <system:String x:Key="Rir_1">1 RIR — 1 tekrar kaldı</system:String>
+    <system:String x:Key="Rir_2">2 RIR — 2 tekrar kaldı</system:String>
+    <system:String x:Key="Rir_3">3 RIR — 3 tekrar kaldı</system:String>
+    <system:String x:Key="Rir_4">4 RIR — 4 tekrar kaldı</system:String>
+    <system:String x:Key="Btn_CalcPower">Hesapla 💪</system:String>
+    <system:String x:Key="Title_BodyFat">Vücut Yağ Oranı (Navy Metodu)</system:String>
+    <system:String x:Key="Desc_BodyFat">ABD Donanması formülü kullanılarak vücut yağ yüzdesi hesaplanır.</system:String>
+    <system:String x:Key="Label_Gender">CİNSİYET</system:String>
+    <system:String x:Key="Label_Male">Erkek</system:String>
+    <system:String x:Key="Label_Female">Kadın</system:String>
+    <system:String x:Key="Label_Height">BOY (cm)</system:String>
+    <system:String x:Key="Label_Neck">BOYUN ÇEVRESİ (cm)</system:String>
+    <system:String x:Key="Label_Waist">BEL ÇEVRESİ (cm)</system:String>
+    <system:String x:Key="Label_Hip">KALÇA ÇEVRESİ (cm) — Kadın</system:String>
+    <system:String x:Key="Btn_CalcChart">Hesapla 📊</system:String>
+    <system:String x:Key="Title_Calories">Günlük Kalori İhtiyacı (BMR / TDEE)</system:String>
+    <system:String x:Key="Desc_Calories">Mifflin-St Jeor formülü ile bazal metabolizma hızınız (BMR) ve günlük toplam enerji ihtiyacınız (TDEE) hesaplanır.</system:String>
+    <system:String x:Key="Label_Weight">KİLO (kg)</system:String>
+    <system:String x:Key="Label_Age">YAŞ</system:String>
+    <system:String x:Key="Label_ActivityLevel">AKTİVİTE SEVİYESİ</system:String>
+    <system:String x:Key="Act_1">Hareketsiz (spor yok)</system:String>
+    <system:String x:Key="Act_2">Az aktif (haftada 1-3 gün)</system:String>
+    <system:String x:Key="Act_3">Orta aktif (haftada 3-5 gün)</system:String>
+    <system:String x:Key="Act_4">Çok aktif (haftada 6-7 gün)</system:String>
+    <system:String x:Key="Act_5">Ekstra aktif (ağır antrenman / fiziksel iş)</system:String>
+    <system:String x:Key="Btn_CalcFood">Hesapla 🍽</system:String>
+    <system:String x:Key="Title_Macros">Makro Besin Hesaplayıcı</system:String>
+    <system:String x:Key="Desc_Macros">Hedefinize göre günlük protein, karbonhidrat ve yağ gram miktarları hesaplanır.</system:String>
+    <system:String x:Key="Label_TargetCal">GÜNLÜK KALORİ HEDEFİ (kcal)</system:String>
+    <system:String x:Key="Label_Goal">HEDEF</system:String>
+    <system:String x:Key="Goal_Cut">🔻 Yağ Yakma (kesme)</system:String>
+    <system:String x:Key="Goal_Maintain">⚖️ Kilonu Koru (idame)</system:String>
+    <system:String x:Key="Goal_Bulk">💪 Kas Kazanma (bulking)</system:String>
+    <system:String x:Key="Label_WorkoutType">AKTİVİTE / SPOR PROGRAMI</system:String>
+    <system:String x:Key="Work_1">Az aktif (kardiyo ağırlıklı)</system:String>
+    <system:String x:Key="Work_2">Orta aktif (karma antrenman)</system:String>
+    <system:String x:Key="Work_3">Çok aktif (ağırlık antrenmanı)</system:String>
+    <system:String x:Key="Btn_CalcBroccoli">Hesapla 🥦</system:String>
+    <system:String x:Key="Title_BMI">Vücut Kitle İndeksi (BMI)</system:String>
+    <system:String x:Key="Desc_BMI">Kilo ve boy bilgilerine göre VKİ hesaplanır. WHO sınıflandırması ile kategoriniz gösterilir.</system:String>
+    <system:String x:Key="Btn_CalcScale">Hesapla ⚖️</system:String>
+    <system:String x:Key="Label_Underweight">Zayıf</system:String>
+    <system:String x:Key="Label_Normal">Normal</system:String>
+    <system:String x:Key="Label_Overweight">Fazla</system:String>
+    <system:String x:Key="Label_Obese1">Obez I</system:String>
+    <system:String x:Key="Label_Obese2">Obez II+</system:String>
+    <system:String x:Key="Title_WeightGoal">Kilo Hedefi Ulaşılabilirlik Analizi</system:String>
+    <system:String x:Key="Desc_WeightGoal">Mevcut kilonuzu, hedef kilonuzu ve süreyi girin. Hedefinizin sağlık açısından ne derece gerçekçi olduğu yorumlanır.</system:String>
+    <system:String x:Key="Label_CurrentWeight">MEVCUT KİLO (kg)</system:String>
+    <system:String x:Key="Label_TargetWeight">HEDEF KİLO (kg)</system:String>
+    <system:String x:Key="Label_Days">SÜRE (gün)</system:String>
+    <system:String x:Key="Btn_AnalyzeDart">Analiz Et 🎯</system:String>
+    <system:String x:Key="Label_Current">Mevcut</system:String>
+    <system:String x:Key="Label_TargetText">Hedef</system:String>
+    <system:String x:Key="Title_VTaper">V-Vücut (V-Taper) Oranı Hesaplayıcı</system:String>
+    <system:String x:Key="Desc_VTaper">Omuz ve bel ölçülerinize, boy ve kilonuza göre V-vücut oranınız hesaplanır. İdeal silüete ne kadar yakın olduğunuz gösterilir.</system:String>
+    <system:String x:Key="Label_Shoulder">OMUZ GENİŞLİĞİ — en geniş nokta (cm)</system:String>
+    <system:String x:Key="Label_WaistNavel">BEL ÇEVRESİ — göbek hizası (cm)</system:String>
+    <system:String x:Key="Btn_CalcMuseum">Hesapla 🏛</system:String>
+    <system:String x:Key="Label_Ideal">İdeal</system:String>
+    <system:String x:Key="Title_Water">Günlük Su İhtiyacı Hesaplayıcı</system:String>
+    <system:String x:Key="Desc_Water">Kilo, yaş, aktivite seviyesi ve iklime göre günlük su ihtiyacınız hesaplanır.</system:String>
+    <system:String x:Key="WaAct_1">Hareketsiz (masa başı iş, az hareket)</system:String>
+    <system:String x:Key="WaAct_2">Az aktif (haftada 1-3 gün hafif egzersiz)</system:String>
+    <system:String x:Key="WaAct_3">Orta aktif (haftada 3-5 gün egzersiz)</system:String>
+    <system:String x:Key="WaAct_4">Çok aktif (haftada 6-7 gün yoğun egzersiz)</system:String>
+    <system:String x:Key="WaAct_5">Ekstra aktif (ağır fiziksel iş / sporcu)</system:String>
+    <system:String x:Key="Label_Climate">İKLİM / ORTAM</system:String>
+    <system:String x:Key="Clim_1">Ilıman iklim (normal iç mekan)</system:String>
+    <system:String x:Key="Clim_2">Sıcak iklim veya yazın</system:String>
+    <system:String x:Key="Clim_3">Çok sıcak / nem oranı yüksek</system:String>
+    <system:String x:Key="Btn_CalcWater">Hesapla 💧</system:String>
+
+    <!-- Hesaplayıcı Sonuçları & Tavsiyeler -->
+    <system:String x:Key="BMI_Result_Title">VKİ: {0:F1}</system:String>
+    <system:String x:Key="BMI_Underweight_Desc">Zayıf kategorisindesiniz. Sağlıklı kilo alımı için bir diyetisyene danışmanız önerilir.</system:String>
+    <system:String x:Key="BMI_Normal_Desc">Normal kiloludur. Sağlıklı yaşam tarzınızı sürdürün!</system:String>
+    <system:String x:Key="BMI_Overweight_Desc">Fazla kilolu kategorisindesiniz. Fiziksel aktiviteyi artırmak ve dengeli beslenme önerilir.</system:String>
+    <system:String x:Key="BMI_Obese1_Desc">Obezite Sınıf I kategorisindesiniz. Kilo yönetimi için bir sağlık uzmanına danışmanız önerilir.</system:String>
+    <system:String x:Key="BMI_Obese2_Desc">Obezite Sınıf II+ kategorisindesiniz. Bu durum ciddi sağlık riskleri oluşturabilir; lütfen bir doktora danışın.</system:String>
+
+    <system:String x:Key="BF_Result">Vücut Yağı: %{0:F1}</system:String>
+    <system:String x:Key="BF_Advice_Male_Low">Düşük yağ (Sporcu seviyesi). Beslenmenizde yeterli temel yağları aldığınızdan emin olun.</system:String>
+    <system:String x:Key="BF_Advice_Male_Normal">Erkekler için normal/sağlıklı aralık.</system:String>
+    <system:String x:Key="BF_Advice_Male_High">Yüksek yağ. Daha iyi sağlık için bir kilo verme programı düşünebilirsiniz.</system:String>
+    <system:String x:Key="BF_Advice_Female_Low">Düşük yağ (Sporcu seviyesi). Hormonal sağlığınızı takip edin.</system:String>
+    <system:String x:Key="BF_Advice_Female_Normal">Kadınlar için normal/sağlıklı aralık.</system:String>
+    <system:String x:Key="BF_Advice_Female_High">Yüksek yağ. Aktivite seviyenizi artırmayı düşünebilirsiniz.</system:String>
+
+    <system:String x:Key="Calc_Result_BMR">BMH: {0:F0} kcal (Bazal Metabolizma Hızı)</system:String>
+    <system:String x:Key="Calc_Result_TDEE">GYEH: {0:F0} kcal (Günlük Toplam Enerji Harcaması)</system:String>
+    <system:String x:Key="Calc_Advice_Main">Kilo Koruma: {0:F0} kcal</system:String>
+    <system:String x:Key="Calc_Advice_Lose">Yağ Yakma (Definisyon): {0:F0} - {1:F0} kcal</system:String>
+    <system:String x:Key="Calc_Advice_Gain">Kas Kazanımı (Bulk): {0:F0} - {1:F0} kcal</system:String>
+
+    <system:String x:Key="Macro_Result">Protein: {0}g  |  Karbonhidrat: {1}g  |  Yağ: {2}g</system:String>
+    <system:String x:Key="Macro_Advice">Proteinden Gelen Enerji: %{0}  |  Karb: %{1}  |  Yağ: %{2}</system:String>
+
+    <system:String x:Key="WG_Result">Hedef: {1} günde {0} kg</system:String>
+    <system:String x:Key="WG_ChangeRate">Haftalık Değişim: {0:F2} kg</system:String>
+    <system:String x:Key="WG_Status_VeryEasy">Durum: Çok Kolay / İdame ⚖️</system:String>
+    <system:String x:Key="WG_Status_Healthy">Durum: Sağlıklı ve Gerçekçi ✅</system:String>
+    <system:String x:Key="WG_Status_Hard">Durum: Zorlayıcı / Yoğun ⚠️</system:String>
+    <system:String x:Key="WG_Status_Expert">Durum: Uzman Seviyesi / Kas Kaybı Riski 🛑</system:String>
+    <system:String x:Key="WG_Status_Dangerous">Durum: TEHLİKELİ / Gerçekdışı 🚫</system:String>
+    <system:String x:Key="WG_Advice_Loss">Bu kalori açığında kas kütlesini korumak için yüksek protein alımına odaklanın.</system:String>
+    <system:String x:Key="WG_Advice_Gain">Temiz kas kazanımı için progresif overload ve yeterli kalori fazlasına odaklanın.</system:String>
+
+    <system:String x:Key="VTaper_Result">Omuz/Bel Oranı (SHR): {0:F2}</system:String>
+    <system:String x:Key="VTaper_Excellent">Mükemmel V-Vücut</system:String>
+    <system:String x:Key="VTaper_Ideal">İdeal V-Vücut</system:String>
+    <system:String x:Key="VTaper_Borderline">İdeal Sınırında</system:String>
+    <system:String x:Key="VTaper_NeedsWork">Gelişim Gerekiyor</system:String>
+    <system:String x:Key="VTaper_Far">V-Vücut Uzak</system:String>
+    <system:String x:Key="VTaper_Shoulder_Expand">Omzunuzu ~{0:F1} cm genişletmelisiniz (ağırlık antrenmanı).</system:String>
+    <system:String x:Key="VTaper_Shoulder_Perfect">Omuz genişliğiniz mükemmel!</system:String>
+    <system:String x:Key="VTaper_Waist_Thin">Belinizi ~{0:F1} cm inceltmelisiniz (diyet + yağ yakımı).</system:String>
+    <system:String x:Key="VTaper_Waist_Perfect">Bel ölçünüz zaten ideal sınırın içinde — tebrikler!</system:String>
+    <system:String x:Key="VTaper_Detail_Format">Mevcut omuz/bel oranı (SHR): {0:F2}  (ideal: ≥{1:F2})\n\n📐 Boy bazlı ideal ölçüler ({2:F0} cm için):\n   • İdeal omuz genişliği: {3:F1} cm  (mevcut: {4:F1} cm)\n   • İdeal bel çevresi:    {5:F1} cm  (mevcut: {6:F1} cm)\n\n💡 {7}\n💡 {8}</system:String>
+    <system:String x:Key="VTaper_Ideal_Male">Erkekler İçin Hedef (Altın Oran): 1.618</system:String>
+    <system:String x:Key="VTaper_Ideal_Female">Kadınlar İçin Hedef: 1.40</system:String>
+
+    <system:String x:Key="Water_Result">Günlük Su Hedefi: {0:F1} Litre ({1} bardak)</system:String>
+    <system:String x:Key="Water_Advice">Terleme ve susama durumuna göre +/- 500ml esneyebilir.</system:String>
+    
+    <system:String x:Key="RIR_Result">Tahmini 1RM: {0:F1} kg</system:String>
+    <system:String x:Key="RIR_Detail_Format">Mevcut yükleme: {0:F1} kg × {1:F0} tekrar + {2} RIR\n\nÖnerilen antrenman yükleri:</system:String>
+    <system:String x:Key="RIR_Level_95">  • %95  → {0,6:F1} kg   (1-2 tekrar)</system:String>
+    <system:String x:Key="RIR_Level_90">  • %90  → {0,6:F1} kg   (3 tekrar)</system:String>
+    <system:String x:Key="RIR_Level_85">  • %85  → {0,6:F1} kg   (4-5 tekrar)</system:String>
+    <system:String x:Key="RIR_Level_80">  • %80  → {0,6:F1} kg   (6-8 tekrar)</system:String>
+    <system:String x:Key="RIR_Level_75">  • %75  → {0,6:F1} kg   (8-10 tekrar)</system:String>
+    <system:String x:Key="RIR_Level_70">  • %70  → {0,6:F1} kg   (10-12 tekrar)</system:String>
+    <system:String x:Key="RIR_Level_65">  • %65  → {0,6:F1} kg   (12-15 tekrar)</system:String>
+
+    <system:String x:Key="BF_Category_Essential">⚡ Temel Yağ (elit)</system:String>
+    <system:String x:Key="BF_Category_Athlete">🏆 Sporcu</system:String>
+    <system:String x:Key="BF_Category_Fit">✅ Fit</system:String>
+    <system:String x:Key="BF_Category_Acceptable">🟡 Kabul Edilebilir</system:String>
+    <system:String x:Key="BF_Category_Obese">🔴 Obez</system:String>
+    <system:String x:Key="BF_Ideal_Men">Erkekler için ideal: %10–17</system:String>
+    <system:String x:Key="BF_Ideal_Women">Kadınlar için ideal: %18–24</system:String>
+    <system:String x:Key="BF_LeanMass_Format">Yağsız vücut kütlesi: yakl. %{0:F1} (yağsız doku)</system:String>
+
+    <system:String x:Key="Calc_TDEE_Total">GYEH: {0:F0} kcal / gün</system:String>
+    <system:String x:Key="Calc_BMR_Format">BMH (bazal metabolizma): {0:F0} kcal</system:String>
+    <system:String x:Key="Calc_Daily_Goals">Hedefe göre günlük kalori:</system:String>
+    <system:String x:Key="Calc_Goal_Lose">  🔻 Yağ yakma  →  {0:F0} kcal  (−500)</system:String>
+    <system:String x:Key="Calc_Goal_Maintain">  ⚖️ İdame       →  {0:F0} kcal</system:String>
+    <system:String x:Key="Calc_Goal_Gain">  💪 Kas kazanma →  {0:F0} kcal  (+300)</system:String>
+
+    <system:String x:Key="Macro_Goal_Lose">Yağ Yakma</system:String>
+    <system:String x:Key="Macro_Goal_Maintain">İdame</system:String>
+    <system:String x:Key="Macro_Goal_Gain">Kas Kazanma</system:String>
+    <system:String x:Key="Macro_Detail_Protein">🥩 Protein:       {0,6:F0} g   ({1:F0} kcal)  — %{2:F0}</system:String>
+    <system:String x:Key="Macro_Detail_Fat">🥑 Yağ:           {0,6:F0} g   ({1:F0} kcal)  — %{2:F0}</system:String>
+    <system:String x:Key="Macro_Detail_Carbs">🍞 Karbonhidrat:  {0,6:F0} g   ({1:F0} kcal)  — %{2:F0}</system:String>
+    <system:String x:Key="Macro_Note">Protein tercihi: {0:F1} g/kg vücut ağırlığı\nNot: Değerler tahmini olup bireysel faktörlere göre değişir.</system:String>
+
+    <system:String x:Key="BMI_Category_Underweight">🔵 Zayıf</system:String>
+    <system:String x:Key="BMI_Category_Normal">🟢 Normal Kilolu</system:String>
+    <system:String x:Key="BMI_Category_Overweight">🟡 Fazla Kilolu</system:String>
+    <system:String x:Key="BMI_Category_Obese1">🟠 Obez (Sınıf I)</system:String>
+    <system:String x:Key="BMI_Category_Obese2">🔴 Obez (Sınıf II+)</system:String>
+
+    <system:String x:Key="BMI_Detail_Underweight">VKİ 18.5'in altında — düşük kilo riski</system:String>
+    <system:String x:Key="BMI_Detail_Normal">VKİ 18.5–24.9 arası — sağlıklı aralık</system:String>
+    <system:String x:Key="BMI_Detail_Overweight">VKİ 25–29.9 arası — hafif sağlık riski</system:String>
+    <system:String x:Key="BMI_Detail_Obese1">VKİ 30–34.9 arası — orta sağlık riski</system:String>
+    <system:String x:Key="BMI_Detail_Obese2">VKİ 35 ve üzeri — yüksek sağlık riski</system:String>
+
+    <system:String x:Key="BMI_Indicator_Underweight">► Ölçeğin sol bölgesinde</system:String>
+    <system:String x:Key="BMI_Indicator_Normal">► Ölçeğin normal bölgesinde ✅</system:String>
+    <system:String x:Key="BMI_Indicator_Overweight">► Ölçeğin üçüncü bölgesinde</system:String>
+    <system:String x:Key="BMI_Indicator_Obese1">► Ölçeğin dördüncü bölgesinde</system:String>
+    <system:String x:Key="BMI_Indicator_Obese2">► Ölçeğin sağ bölgesinde</system:String>
+    <system:String x:Key="BMI_Ideal_Format">Boyunuza göre normal kilo: {0:F1}–{1:F1} kg</system:String>
+
+    <system:String x:Key="WG_Result_Format">Hedef: {0:F1} kg → {1:F1} kg  ({2}{3:F1} kg, {4:F0} günde)</system:String>
+    <system:String x:Key="WG_Weekly_Format">Haftada ortalama değişim: {0}{1:F2} kg/hafta</system:String>
+    <system:String x:Key="WG_DailyCal_Format">Gereken günlük kalori {0}: ~{1:F0} kcal</system:String>
+    <system:String x:Key="WG_Surplus">fazlası</system:String>
+    <system:String x:Key="WG_Deficit">açığı</system:String>
+
+    <system:String x:Key="Water_Rating_Low">⚠️ Düşük</system:String>
+    <system:String x:Key="Water_Rating_Normal">✅ Normal</system:String>
+    <system:String x:Key="Water_Rating_High">💪 Yüksek (aktif)</system:String>
+    <system:String x:Key="Water_Rating_Athlete">🏊 Sporcu düzeyi</system:String>
+    <system:String x:Key="Water_Clim_Temperate">ılıman</system:String>
+    <system:String x:Key="Water_Clim_Hot">sıcak</system:String>
+    <system:String x:Key="Water_Clim_VeryHot">çok sıcak/nemli</system:String>
+    <system:String x:Key="Water_Detail_Format">Temel su ihtiyacı ({0:F0} kg × {1} ml): {2:F0} ml\nAktivite eklemesi: +{3:F0} ml\nİklim faktörü ({4}): ×{5:F2}\n\n📊 Toplam: {6:F0} ml  ≈  {7:F1} litre  ≈  {8} bardak\n\n⏰ Saatlik bölüştürme önerisi (16 saat uyanık):\n   Sabah 8-12 arası:   {9:F1} bardak\n   Öğle  12-17 arası:  {10:F1} bardak\n   Akşam 17-22 arası:  {11:F1} bardak\n\n💡 Kahve, çay, meyve suyu vb. de günlük sıvı sayılır.\n   İdrar rengi açık sarı ise yeterince su içiyorsunuz.</system:String>
+
+    <system:String x:Key="Sup_Title_Rec">🏆 Sizin İçin Önerilen Takviyeler</system:String>
+    <system:String x:Key="Sup_Analysis_Format">Analiz: {0} | Kilo: {1:F0} kg | Ağırlık: {2}</system:String>
+    <system:String x:Key="Sup_Minimal">Minimal</system:String>
+    <system:String x:Key="Sup_Comprehensive">Kapsamlı</system:String>
+    <system:String x:Key="Sup_Yes">Evet</system:String>
+    <system:String x:Key="Sup_No">Hayır</system:String>
+    <system:String x:Key="Sup_None_Found">Tebrikler! Mevcut durumunuza göre ek takviyeye ihtiyaç duyulmamaktadır.</system:String>
+    <system:String x:Key="Sup_Priority_High">YÜKSEK</system:String>
+    <system:String x:Key="Sup_Priority_Medium">ORTA</system:String>
+    <system:String x:Key="Sup_Priority_Low">DÜŞÜK</system:String>
+
+    <!-- Supplement Test -->
+    <system:String x:Key="Tab_Supplement">💊 Takviye</system:String>
+    <system:String x:Key="Title_Supplement">Supplement İhtiyaç Testi</system:String>
+    <system:String x:Key="Desc_Supplement">Yaşam tarzınız, beslenme alışkanlıklarınız ve semptomlarınıza göre hangi takviyelere ihtiyacınız olduğunu tespit edin.</system:String>
+    <system:String x:Key="Sup_Section1">🏋️ TEMEL BİLGİLER</system:String>
+    <system:String x:Key="Sup_Weight">Kilonuz (kg)</system:String>
+    <system:String x:Key="Sup_WeightDesc">Vücut ağırlığınız dozları belirlemek için önemli.</system:String>
+    <system:String x:Key="Sup_AnalysisType">Analiz Nasıl Olsun?</system:String>
+    <system:String x:Key="Sup_AnalysisMinimal">Minimal, sınırlı bütçem var ve fiyat performans hedefliyorum.</system:String>
+    <system:String x:Key="Sup_AnalysisComprehensive">Kapsamlı, makul bir şekilde en iyi fitness ve sağlık sonuçlarını almak istiyorum.</system:String>
+    <system:String x:Key="Sup_WeightTraining">Ağırlık Çalışıyor Musunuz?</system:String>
+    <system:String x:Key="Sup_Section2">🍽️ BESLENME ANALİZİ</system:String>
+    <system:String x:Key="Sup_Protein">Protein Alımı</system:String>
+    <system:String x:Key="Sup_ProteinDesc">Çeşit, kalite, miktar olarak, 10 üzerinden protein alımınızı değerlendirin. Örneğin bol miktarda ve farklı hayvansal kaynaklardan protein alıyorsanız 10, tek tip vejetaryen besleniyorsanız ve az protein alıyorsanız 1'i seçin.</system:String>
+    <system:String x:Key="Sup_MealRegularity">Öğün Düzeni</system:String>
+    <system:String x:Key="Sup_MealRegularityDesc">Öğünleriniz saati saatine çok düzenliyse yüksek puan verin, dümenden rastgele besleniyorsanız düşük puan verin.</system:String>
+    <system:String x:Key="Sup_Digestion">Sindirim ve Boşaltım</system:String>
+    <system:String x:Key="Sup_DigestionDesc">Gaz, şişkinlik, bulantı, kabızlık, ishal, karın ağrısı vb. yaşıyorsanız düşük puan verin.</system:String>
+    <system:String x:Key="Sup_VeggieFruit">Çeşitli Sebze ve Meyve Tüketimi</system:String>
+    <system:String x:Key="Sup_VeggieFruitDesc">Günlük birkaç porsiyon, çeşitli sebze ve meyvelerden tüketiyorsanız yüksek puan verin.</system:String>
+    <system:String x:Key="Sup_Satiety">Tokluk Hissi</system:String>
+    <system:String x:Key="Sup_SatietyDesc">Gün boyu kendinizi tok ve tatmin hissediyorsanız yüksek puan verin. İştahınız problemliyse ve şekeriniz düşüyorsa düşük puan verin.</system:String>
+    <system:String x:Key="Sup_Section3">🌙 YAŞAM TARZI &amp; BELİRTİLER</system:String>
+    <system:String x:Key="Sup_Sleep">Uyku ve Taze Hissetme</system:String>
+    <system:String x:Key="Sup_SleepDesc">Uyandığınızda kendinizi dinlenmiş ve taze hissediyorsanız yüksek puan verin.</system:String>
+    <system:String x:Key="Sup_SymptomsTitle">Uygun Olanları İşaretleyin</system:String>
+    <system:String x:Key="Sup_SymptomsSubtitle">Birden çok seçilebilir.</system:String>
+    <system:String x:Key="Sup_ChkWinter">Mevsim kış veya güneş ışığı zayıf</system:String>
+    <system:String x:Key="Sup_ChkSweat">Sporda veya gün içinde fazla terliyorum</system:String>
+    <system:String x:Key="Sup_ChkNoVeggie">Sebze tüketmekten hoşlanmam</system:String>
+    <system:String x:Key="Sup_ChkLowEnergy">Enerjim düşük, halsiz hissediyorum</system:String>
+    <system:String x:Key="Sup_ChkPoorSleep">Uykularım tatmin edici değil</system:String>
+    <system:String x:Key="Sup_ChkCantSleep">Uykuya dalmakta zorlanıyorum</system:String>
+    <system:String x:Key="Sup_ChkStress">Stresim yüksek ve rahatlamakta zorlanıyorum</system:String>
+    <system:String x:Key="Sup_Section4">⚡ ANTRENMAN</system:String>
+    <system:String x:Key="Sup_TrainingEnergy">Antrenman Esnasında Enerji</system:String>
+    <system:String x:Key="Sup_TrainingEnergyDesc">Kendinizi güçlü ve enerjik hissediyorsanız yüksek puan verin.</system:String>
+    <system:String x:Key="Sup_TrainingTitle">Antrenman Esnasında</system:String>
+    <system:String x:Key="Sup_ChkTrainOk">Yeterince enerjik ve güçlü hissediyorum</system:String>
+    <system:String x:Key="Sup_ChkWeakPump">Pump hissim zayıf</system:String>
+    <system:String x:Key="Sup_ChkTrainFaint">Baygın ve halsiz hissediyorum</system:String>
+    <system:String x:Key="Btn_AnalyzeSupplement">Analiz Et 💊</system:String>
+    <system:String x:Key="Sup_ResultTitle">Sizin İçin Önerilen Takviyeler</system:String>
+    <system:String x:Key="Sup_NoResult">Tebrikler! Mevcut durumunuza göre ek takviyeye ihtiyaç duyulmamaktadır.</system:String>
+    <system:String x:Key="Sup_PriorityHigh">Yüksek Öncelik</system:String>
+    <system:String x:Key="Sup_PriorityMed">Orta Öncelik</system:String>
+    <system:String x:Key="Sup_PriorityLow">Düşük Öncelik</system:String>
+    <system:String x:Key="Sup_Dose">Doz</system:String>
+    <system:String x:Key="Sup_Timing">Zamanlama</system:String>
+    <system:String x:Key="Sup_RestartTest">Testi Sıfırla 🔄</system:String>
+
+    <!-- Project Status -->
+    <system:String x:Key="Text_NoTasksYet">Henüz görev yok</system:String>
+    <system:String x:Key="Text_TasksCompleted">görev tamamlandı</system:String>
+    <system:String x:Key="Label_LitersPerDay">litre / gün</system:String>
+
+    <!-- MainViewModel Localized Strings -->
+    <system:String x:Key="Text_NewTaskDefault">Yeni görev</system:String>
+    <system:String x:Key="Text_PagePrefix">Sayfa</system:String>
+    <system:String x:Key="Msg_DayCopied">{0} günü kopyalandı!</system:String>
+    <system:String x:Key="Msg_CopiedTitle">Kopyalandı</system:String>
+    <system:String x:Key="Msg_PasteToMonthConfirm">{0} ayındaki tüm günlere yapıştırılsın mı?</system:String>
+    <system:String x:Key="Msg_PasteToMonthTitle">Tüm Aya Yapıştır</system:String>
+    <system:String x:Key="Msg_PageCopied">'{0}' sayfası kopyalandı!</system:String>
+    <system:String x:Key="Title_PastePageDays">Sayfayı Yapıştır — Günleri Seç</system:String>
+
+    <!-- Supplements Definitions -->
+    <system:String x:Key="Sup_01_Name">Kreatin Monohidrat</system:String>
+    <system:String x:Key="Sup_01_Dose">3–5 g/gün</system:String>
+    <system:String x:Key="Sup_01_Time">Her gün sabit saatte, yemekle veya sonrasında</system:String>
+    <system:String x:Key="Sup_01_Note">En iyi araştırılmış takviye. Güç %5–15 artışı, yağsız kütle desteği. Yükleme gerekmez.</system:String>
+    
+    <system:String x:Key="Sup_02_Name">Protein Tozu (Whey)</system:String>
+    <system:String x:Key="Sup_02_Dose">Hedef: günlük toplam ~{0:F0} g protein ({1} g/kg)</system:String>
+    <system:String x:Key="Sup_02_Time">Antrenman sonrası 30–60 dk içinde veya günlük proteini tamamlamak için</system:String>
+    <system:String x:Key="Sup_02_Note">Whey isolate en hızlı emilen. Gerçek yemekten üstün değil — açığı kapatmak için kullanın.</system:String>
+    
+    <system:String x:Key="Sup_03_Name">D3 Vitamini + K2</system:String>
+    <system:String x:Key="Sup_03_Dose">2000–4000 IU D3 + 100–200 mcg K2/gün</system:String>
+    <system:String x:Key="Sup_03_Time">Yağlı yemekle birlikte (yağda çözünür)</system:String>
+    <system:String x:Key="Sup_03_Note">Sporcuların %50'si yetersiz. Kas gücü, hormon dengesi, bağışıklık. Ekim–Nisan arası şart.</system:String>
+    
+    <system:String x:Key="Sup_04_Name">Magnezyum Bisglisinat</system:String>
+    <system:String x:Key="Sup_04_Dose">200–400 mg/gün</system:String>
+    <system:String x:Key="Sup_04_Time">Glinat formu gece yatmadan önce, gevşeme ve derin uyku için</system:String>
+    <system:String x:Key="Sup_04_Note">Sporcuların %60'ında eksik. Kas krampı azaltır, uyku kalitesi ve insülin duyarlılığını artırır.</system:String>
+    
+    <system:String x:Key="Sup_05_Name">Omega-3 (EPA/DHA)</system:String>
+    <system:String x:Key="Sup_05_Dose">2–3 g/gün (≥1 g EPA)</system:String>
+    <system:String x:Key="Sup_05_Time">Yemeklerle birlikte, her gün düzenli</system:String>
+    <system:String x:Key="Sup_05_Note">Kas protein sentezini artırır, egzersiz sonrası inflamasyonu azaltır. Balık yağı tercih edin.</system:String>
+
+    <system:String x:Key="Sup_06_Name">Multivitamin / Multimineral</system:String>
+    <system:String x:Key="Sup_06_Dose">1 tablet/gün (etiket yönergesine göre)</system:String>
+    <system:String x:Key="Sup_06_Time">Kahvaltı veya öğle yemeğiyle</system:String>
+    <system:String x:Key="Sup_06_Note">Yetersiz beslenme çeşitliliğinden kaynaklanan mikro besin açıklarını kapatır. Gerçek yemeğin yerini tutmaz.</system:String>
+
+    <system:String x:Key="Sup_07_Name">Kafein (Pre-workout)</system:String>
+    <system:String x:Key="Sup_07_Dose">3–6 mg/kg → {0:F0}–{1:F0} mg</system:String>
+    <system:String x:Key="Sup_07_Time">Antrenmandan 45–60 dk önce. Uyku için öğleden sonra 14:00'den sonra kaçının.</system:String>
+    <system:String x:Key="Sup_07_Note">Dayanıklılık %2–4 artışı, güç ve odak artışı. Tolerans için haftada 1–2 gün ara verin.</system:String>
+
+    <system:String x:Key="Sup_08_Name">Probiyotik</system:String>
+    <system:String x:Key="Sup_08_Dose">10–50 milyar CFU/gün, çoklu suş</system:String>
+    <system:String x:Key="Sup_08_Time">Sabah aç karnına veya yatmadan önce</system:String>
+    <system:String x:Key="Sup_08_Note">Bağırsak florası dengesini restore eder. Lactobacillus + Bifidobacterium suşları arayın.</system:String>
+
+    <system:String x:Key="Sup_09_Name">Elektrolit</system:String>
+    <system:String x:Key="Sup_09_Dose">Sodyum 500–1500 mg, Potasyum 200–400 mg (seans başı)</system:String>
+    <system:String x:Key="Sup_09_Time">Antrenman sırasında ve sonrasında, özellikle sıcak havada</system:String>
+    <system:String x:Key="Sup_09_Note">Aşırı terlemeye bağlı sıvı kaybı ve performans düşüşünü önler.</system:String>
+
+    <system:String x:Key="Sup_10_Name">Çinko + C Vitamini</system:String>
+    <system:String x:Key="Sup_10_Dose">Çinko 15–30 mg + C Vitamini 500–1000 mg/gün</system:String>
+    <system:String x:Key="Sup_10_Time">Yemekle birlikte (çinko aç karna mide bulantısı yapabilir)</system:String>
+    <system:String x:Key="Sup_10_Note">Bağışıklık, testosteron üretimi ve antioksidan savunmayı destekler.</system:String>
+
+    <system:String x:Key="Sup_11_Name">Beta-Alanin</system:String>
+    <system:String x:Key="Sup_11_Dose">3.2–6.4 g/gün</system:String>
+    <system:String x:Key="Sup_11_Time">Küçük dozlara bölün (0.8–1g × 4–6) karıncalanmayı minimize edin</system:String>
+    <system:String x:Key="Sup_11_Note">60–240 sn egzersizde pH tamponlar. Karıncalanma normaldir, zararsızdır. Etki için min 4 hafta.</system:String>
+
+    <system:String x:Key="Sup_12_Name">Lif Takviyesi (Psyllium Husk)</system:String>
+    <system:String x:Key="Sup_12_Dose">5–10 g/gün</system:String>
+    <system:String x:Key="Sup_12_Time">Bol su ile, öğünler arasında</system:String>
+    <system:String x:Key="Sup_12_Note">Sindirimi düzenler, tokluk hissini artırır, kan şekerini dengeler.</system:String>
+
+    <system:String x:Key="Sup_13_Name">Melatonin</system:String>
+    <system:String x:Key="Sup_13_Dose">0.5–3 mg/gün</system:String>
+    <system:String x:Key="Sup_13_Time">Yatmadan 30–60 dk önce, karanlık odada</system:String>
+    <system:String x:Key="Sup_13_Note">En düşük dozla başlayın (0.5 mg). Uyku döngüsünü sıfırlamak için kısa süreli kullanım.</system:String>
+
+    <system:String x:Key="Sup_PriorityLabel">Öncelik:</system:String>
+    <system:String x:Key="Sup_DoseLabel">Doz:</system:String>
+    <system:String x:Key="Sup_TimingLabel">Zamanlama:</system:String>
+    <system:String x:Key="Btn_ResetTest">Testi Sıfırla 🔄</system:String>
+</ResourceDictionary>

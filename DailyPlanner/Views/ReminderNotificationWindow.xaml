@@ -1,0 +1,105 @@
+<Window x:Class="DailyPlanner.Views.ReminderNotificationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Title_Reminder}"
+        Height="230" Width="380"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource ContentBackgroundBrush}"
+        FontFamily="Segoe UI"
+        Topmost="True"
+        Icon="/Assets/app_logo.png">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Icon + Title -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,12">
+            <TextBlock Text="🔔" FontSize="28" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="{DynamicResource Text_ReminderAlert}"
+                           FontSize="16" FontWeight="Bold"
+                           Foreground="{DynamicResource PrimaryTextBrush}"/>
+                <TextBlock x:Name="SubtitleText"
+                           Text="{DynamicResource Text_ReminderSubtitle}"
+                           FontSize="11"
+                           Foreground="{DynamicResource SecondaryTextBrush}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Note title -->
+        <Border Grid.Row="1"
+                Background="{DynamicResource SidebarBackgroundBrush}"
+                CornerRadius="8" Padding="12,10"
+                VerticalAlignment="Center">
+            <TextBlock x:Name="NoteTitle"
+                       FontSize="14" FontWeight="SemiBold"
+                       Foreground="White"
+                       TextWrapping="Wrap"/>
+        </Border>
+
+        <!-- Butonlar -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,14,0,0">
+            <!-- Göster butonu -->
+            <Button x:Name="ShowBtn"
+                    Content="{DynamicResource Text_Show}"
+                    Margin="0,0,8,0"
+                    Padding="18,8"
+                    Cursor="Hand"
+                    FontSize="13" FontWeight="SemiBold"
+                    Foreground="{DynamicResource AccentBrush}"
+                    Background="{DynamicResource AccentLightBrush}"
+                    BorderThickness="0"
+                    Click="Show_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="8" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.8"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Tamam butonu -->
+            <Button Content="{DynamicResource Text_Ok}"
+                    Padding="24,8"
+                    Cursor="Hand"
+                    FontSize="13" FontWeight="SemiBold"
+                    Foreground="White"
+                    Background="{DynamicResource AccentBrush}"
+                    BorderThickness="0"
+                    Click="Ok_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="8" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.85"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,291 @@
+<Window x:Class="DailyPlanner.Views.StatsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Title_Stats}" Height="520" Width="760"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        Background="{DynamicResource ContentBackgroundBrush}"
+        FontFamily="Segoe UI"
+        Icon="/Assets/app_logo.png">
+
+    <Window.Resources>
+        <!-- Nav button style -->
+        <Style x:Key="NavBtn" TargetType="Button">
+            <Setter Property="Width"           Value="28"/>
+            <Setter Property="Height"          Value="28"/>
+            <Setter Property="Cursor"          Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize"        Value="12"/>
+            <Setter Property="Background"      Value="{DynamicResource NavBtnBrush}"/>
+            <Setter Property="Foreground"      Value="{DynamicResource PrimaryTextBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{DynamicResource NavBtnHoverBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Toggle button style -->
+        <Style x:Key="ModeBtn" TargetType="ToggleButton">
+            <Setter Property="Padding"         Value="14,6"/>
+            <Setter Property="Cursor"          Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize"        Value="12"/>
+            <Setter Property="FontWeight"      Value="SemiBold"/>
+            <Setter Property="Background"      Value="{DynamicResource NavBtnBrush}"/>
+            <Setter Property="Foreground"      Value="{DynamicResource SecondaryTextBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{DynamicResource AccentBrush}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ── Header ── -->
+        <Border Grid.Row="0" Padding="24,16"
+                Background="{DynamicResource HeaderBackgroundBrush}"
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="0,0,0,1">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Left">
+                    <TextBlock Text="{DynamicResource Text_StatsHeader}"
+                               FontSize="18" FontWeight="Bold"
+                               Foreground="{DynamicResource PrimaryTextBrush}"/>
+                    <TextBlock Text="{DynamicResource Text_StatsSub}"
+                               FontSize="12" Foreground="{DynamicResource SecondaryTextBrush}"
+                               Margin="0,3,0,0"/>
+                </StackPanel>
+
+                <!-- Mode toggle -->
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            Background="{DynamicResource NavBtnBrush}"
+                            x:Name="TogglePanel">
+                    <ToggleButton x:Name="WeeklyBtn" Content="{DynamicResource Text_Weekly}" IsChecked="True"
+                                  Style="{StaticResource ModeBtn}"
+                                  Checked="WeeklyBtn_Checked"/>
+                    <ToggleButton x:Name="MonthlyBtn" Content="{DynamicResource Text_Monthly}"
+                                  Style="{StaticResource ModeBtn}"
+                                  Checked="MonthlyBtn_Checked"/>
+                    <ToggleButton x:Name="YearlyBtn" Content="{DynamicResource Text_Yearly}"
+                                  Style="{StaticResource ModeBtn}"
+                                  Checked="YearlyBtn_Checked"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- ── Navigation bar ── -->
+        <Border Grid.Row="1" Padding="24,10"
+                Background="{DynamicResource ContentBackgroundBrush}"
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="0,0,0,1">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Content="◀" Style="{StaticResource NavBtn}" Click="Prev_Click" Margin="0,0,8,0"/>
+                    <TextBlock x:Name="PeriodLabel"
+                               FontSize="14" FontWeight="SemiBold"
+                               Foreground="{DynamicResource PrimaryTextBrush}"
+                               VerticalAlignment="Center" MinWidth="180"/>
+                    <Button Content="▶" Style="{StaticResource NavBtn}" Click="Next_Click" Margin="8,0,0,0"/>
+                </StackPanel>
+
+                <!-- Summary chips -->
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Border Background="{DynamicResource AccentLightBrush}" CornerRadius="8"
+                            Padding="10,5" Margin="6,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{DynamicResource Text_Avg}" FontSize="11" Foreground="{DynamicResource SecondaryTextBrush}" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="AvgChip" FontSize="13" FontWeight="Bold"
+                                       Foreground="{DynamicResource AccentBrush}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Background="{DynamicResource AccentLightBrush}" CornerRadius="8"
+                            Padding="10,5" Margin="6,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{DynamicResource Text_Best}" FontSize="11" Foreground="{DynamicResource SecondaryTextBrush}" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="BestChip" FontSize="13" FontWeight="Bold"
+                                       Foreground="{DynamicResource AccentBrush}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Background="{DynamicResource AccentLightBrush}" CornerRadius="8"
+                            Padding="10,5" Margin="6,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{DynamicResource Text_Total}" FontSize="11" Foreground="{DynamicResource SecondaryTextBrush}" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="TotalChip" FontSize="13" FontWeight="Bold"
+                                       Foreground="{DynamicResource AccentBrush}"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- ── Bar chart ── -->
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Disabled"
+                      Padding="24,20">
+            <ItemsControl x:Name="ChartItems">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Each bar column (tıklanabilir) -->
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom"
+                                        Width="44" Margin="3,0"
+                                        Cursor="Hand"
+                                        MouseLeftButtonUp="Bar_Click">
+                                <!-- % label on top -->
+                                <TextBlock x:Name="PctLabel"
+                                           Text="{Binding PercentLabel}"
+                                           FontSize="9" FontWeight="SemiBold"
+                                           HorizontalAlignment="Center"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           Margin="0,0,0,2"/>
+                                <!-- Bar itself inside fixed-height container -->
+                                <Grid Height="180" VerticalAlignment="Bottom">
+                                    <!-- background track -->
+                                    <Border Background="{DynamicResource BorderBrush}" CornerRadius="4"
+                                            VerticalAlignment="Stretch" Opacity="0.4"/>
+                                    <!-- filled bar -->
+                                    <Border CornerRadius="4,4,2,2"
+                                            VerticalAlignment="Bottom"
+                                            Height="{Binding BarHeight}"
+                                            Background="{Binding BarColor}"
+                                            ToolTip="{Binding Tooltip}">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Opacity" Value="0.75"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+                                </Grid>
+                                <!-- Day label -->
+                                <TextBlock Text="{Binding DayLabel}"
+                                           FontSize="9" HorizontalAlignment="Center"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           Margin="0,4,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <!-- ── Sayfa Detay Paneli ── -->
+        <Border x:Name="DetailPanel"
+                Grid.Row="3"
+                Visibility="Collapsed"
+                Background="{DynamicResource ContentBackgroundBrush}"
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="0,1,0,0"
+                Padding="24,14">
+            <StackPanel>
+                <!-- Başlık satırı -->
+                <DockPanel Margin="0,0,0,10">
+                    <Button DockPanel.Dock="Right"
+                            Content="✕" Width="22" Height="22"
+                            Style="{StaticResource NavBtn}"
+                            Click="CloseDetail_Click"
+                            ToolTip="{DynamicResource Text_Close}"/>
+                    <TextBlock x:Name="DetailDateLabel"
+                               FontSize="13" FontWeight="SemiBold"
+                               Foreground="{DynamicResource PrimaryTextBrush}"
+                               VerticalAlignment="Center"/>
+                </DockPanel>
+
+                <!-- Sayfa listesi -->
+                <ItemsControl x:Name="PageDetailList">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="210"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Sayfa adı -->
+                                <TextBlock Grid.Column="0"
+                                           Text="{Binding PageName}"
+                                           FontSize="12" FontWeight="SemiBold"
+                                           Foreground="{DynamicResource PrimaryTextBrush}"
+                                           VerticalAlignment="Center"
+                                           TextTrimming="CharacterEllipsis"/>
+
+                                <!-- Progress bar -->
+                                <Grid Grid.Column="1" Height="8" VerticalAlignment="Center">
+                                    <Border Background="{DynamicResource BorderBrush}" CornerRadius="4"
+                                            HorizontalAlignment="Stretch"/>
+                                    <Border Background="{Binding AccentBrush}" CornerRadius="4"
+                                            HorizontalAlignment="Left"
+                                            Width="{Binding BarWidth}"/>
+                                </Grid>
+
+                                <!-- Label: %72  (8/11) -->
+                                <TextBlock Grid.Column="2"
+                                           Text="{Binding Label}"
+                                           FontSize="12" FontWeight="SemiBold"
+                                           Foreground="{Binding AccentBrush}"
+                                           Margin="12,0,0,0"
+                                           VerticalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+
+        <!-- ── Legend ── -->
+        <Border Grid.Row="4" Padding="24,10"
+                Background="{DynamicResource HeaderBackgroundBrush}"
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Border Width="12" Height="12" CornerRadius="3" Background="#6EE7B7" Margin="0,0,5,0"/>
+                <TextBlock Text="{DynamicResource Text_Stat80}" FontSize="11" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,16,0"/>
+                <Border Width="12" Height="12" CornerRadius="3" Background="#FCD34D" Margin="0,0,5,0"/>
+                <TextBlock Text="40–79%" FontSize="11" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,16,0"/>
+                <Border Width="12" Height="12" CornerRadius="3" Background="#FCA5A5" Margin="0,0,5,0"/>
+                <TextBlock Text="{DynamicResource Text_Stat40}" FontSize="11" Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,16,0"/>
+                <Border Width="12" Height="12" CornerRadius="3" Background="#D1D5DB" Margin="0,0,5,0"/>
+                <TextBlock Text="{DynamicResource Text_StatEmpty}" FontSize="11" Foreground="{DynamicResource SecondaryTextBrush}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
